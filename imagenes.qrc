@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="images">
+    <file>imagenes/taza1.png</file>
+    <file>imagenes/estrellas.png</file>
+  </qresource>
+</RCC>
