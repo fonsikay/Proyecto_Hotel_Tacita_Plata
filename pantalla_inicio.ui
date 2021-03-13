@@ -7,165 +7,29 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>571</width>
-    <height>423</height>
+    <width>556</width>
+    <height>434</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QFrame" name="frmPrincipal">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>51</y>
-      <width>400</width>
-      <height>200</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:0.500182, x2:0, y2:0.273, stop:0 rgba(56, 55, 56, 255), stop:1 rgba(255, 255, 255, 255));
-border-radius: 20px;
-border-bottom: 5px solid rgb(98, 97, 98);
-border-right: 5px solid rgb(56, 55, 56);
-border-top: 5px solid rgb(98, 97, 98);
-border-left: 5px solid rgb(98, 97, 98);</string>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-    <widget class="QFrame" name="frmCirculo">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>17</y>
-       <width>401</width>
-       <height>400</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color:none;
-border: 10px solid rgb(56, 55, 56);
-border-radius: 200px;</string>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-     <widget class="QLabel" name="lblBienvenido">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>122</y>
-        <width>371</width>
-        <height>71</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Impact</family>
-        <pointsize>30</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">border-left: none;
-border-top: none;
-border-right: 20px solid rgb(56, 55, 56);
-border-left: 20px solid rgb(56, 55, 56);
-border-radius: 20px;
-border-bottom: 20px solid rgb(56, 55, 56);
-color: rgb(254, 254, 254)</string>
-      </property>
-      <property name="text">
-       <string>BIENVENIDO</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-     <widget class="QFrame" name="frame">
-      <property name="geometry">
-       <rect>
-        <x>97</x>
-        <y>26</y>
-        <width>211</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">border:none;
-image: url(:/images/imagenes/estrellas.png);</string>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-     </widget>
-    </widget>
-   </widget>
-   <widget class="QFrame" name="frmLogo">
-    <property name="geometry">
-     <rect>
-      <x>320</x>
-      <y>-10</y>
-      <width>250</width>
-      <height>261</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">image: url(:/images/imagenes/taza1.png)</string>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-   </widget>
    <widget class="QFrame" name="frmBordeLogo">
     <property name="geometry">
      <rect>
-      <x>320</x>
+      <x>325</x>
       <y>1</y>
-      <width>250</width>
-      <height>250</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border: 7px solid rgb(98, 97, 98);
-border-radius: 20px;
-background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0.977, y2:0.0564091, stop:0 rgba(56, 55, 56, 255), stop:1 rgba(98, 97, 98, 133));</string>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-   </widget>
-   <widget class="QFrame" name="frmMasInfo">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>231</y>
-      <width>401</width>
+      <width>231</width>
       <height>191</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(56, 55, 56);
+     <string notr="true">border: 5px solid rgb(171, 135, 10);
 border-radius: 20px;
-border: 5px solid rgb(98, 97, 98);</string>
+background-color: qlineargradient(spread:pad, x1:0.131, y1:0.347, x2:1, y2:0, stop:0 rgba(227, 192, 69, 192), stop:0.988636 rgba(253, 233, 26, 52));
+
+</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -173,87 +37,264 @@ border: 5px solid rgb(98, 97, 98);</string>
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QLabel" name="lblDisenador">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>160</y>
-       <width>381</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Impact</family>
-       <pointsize>10</pointsize>
-       <weight>50</weight>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border:none;
-color: rgb(254, 254, 254);</string>
-     </property>
-     <property name="text">
-      <string>Diseñado por Fonsikay Design</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="lblTitulo">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>50</y>
-       <width>381</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Impact</family>
-       <pointsize>15</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border:none;
-color: rgb(254, 254, 254);</string>
-     </property>
-     <property name="text">
-      <string>Inicializando Hotel Spa La Tacita de Plata App</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="lblEspere">
-     <property name="geometry">
-      <rect>
-       <x>270</x>
-       <y>100</y>
-       <width>111</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Impact</family>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border:none;
-color: rgb(254, 254, 254);</string>
-     </property>
-     <property name="text">
-      <string>Espere por favor. . . .</string>
-     </property>
-    </widget>
+   </widget>
+   <widget class="QFrame" name="frmPrincipal">
+    <property name="geometry">
+     <rect>
+      <x>5</x>
+      <y>61</y>
+      <width>401</width>
+      <height>371</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: qlineargradient(spread:pad, x1:0.528, y1:0.858, x2:0.517409, y2:0.159, stop:0 rgba(23, 55, 87, 255), stop:1 rgba(42, 100, 165, 255));
+border-radius: 20px;
+border: 5px solid rgb(171, 135, 10);</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblTitulo">
+    <property name="geometry">
+     <rect>
+      <x>15</x>
+      <y>295</y>
+      <width>381</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Impact</family>
+      <pointsize>13</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:none;
+color: rgb(32, 76, 123);</string>
+    </property>
+    <property name="text">
+     <string>Inicializando Hotel Spa La Tacita de Plata App</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frmArco">
+    <property name="geometry">
+     <rect>
+      <x>-17</x>
+      <y>25</y>
+      <width>431</width>
+      <height>351</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">image: url(:/images/imagenes/arco 2.png)</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frmEstrella">
+    <property name="geometry">
+     <rect>
+      <x>74</x>
+      <y>114</y>
+      <width>261</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:none;
+image: url(:/images/imagenes/logo_estrella.png);</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblBienvenidos">
+    <property name="geometry">
+     <rect>
+      <x>105</x>
+      <y>199</y>
+      <width>201</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Impact</family>
+      <pointsize>30</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:rgb(245, 245, 245)</string>
+    </property>
+    <property name="text">
+     <string>BIENVENIDO</string>
+    </property>
+   </widget>
+   <widget class="QProgressBar" name="barra_progreso">
+    <property name="geometry">
+     <rect>
+      <x>29</x>
+      <y>350</y>
+      <width>191</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Impact</family>
+      <pointsize>9</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QProgressBar
+{
+	background-color :rgb(227, 192, 69);
+	border-style: none;
+	border-radius: 10px;
+	text-align: center;
+	color: rgb(254, 254, 254);
+}
+
+QProgressBar::chunk
+{
+	background-color:qlineargradient(spread:pad, x1:0.528, y1:0.858, x2:0.517409, y2:0.159, stop:0 rgba(23, 55, 87, 255), stop:1 rgba(42, 100, 165, 255));
+	border-radius: 5px;
+}</string>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblDisenador">
+    <property name="geometry">
+     <rect>
+      <x>15</x>
+      <y>400</y>
+      <width>381</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Impact</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:none;
+color: rgb(32, 76, 123);</string>
+    </property>
+    <property name="text">
+     <string>Diseñado por Fonsikay Design</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblEstado">
+    <property name="geometry">
+     <rect>
+      <x>228</x>
+      <y>352</y>
+      <width>161</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Impact</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:none;
+color: rgb(32, 76, 123);</string>
+    </property>
+    <property name="text">
+     <string>Espere por favor. . . .</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frmColorMasInfo">
+    <property name="geometry">
+     <rect>
+      <x>5</x>
+      <y>267</y>
+      <width>401</width>
+      <height>165</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(227, 192, 69);
+border-bottom-left-radius: 20px;
+border-bottom-right-radius: 20px;
+border: 5px solid rgb(171, 135, 10);</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frmLogo">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>10</y>
+      <width>221</width>
+      <height>171</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">image: url(:/images/imagenes/logo.png);</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
    </widget>
    <zorder>frmBordeLogo</zorder>
-   <zorder>frmMasInfo</zorder>
    <zorder>frmPrincipal</zorder>
+   <zorder>lblBienvenidos</zorder>
+   <zorder>frmEstrella</zorder>
+   <zorder>frmColorMasInfo</zorder>
+   <zorder>frmArco</zorder>
+   <zorder>lblDisenador</zorder>
+   <zorder>lblEstado</zorder>
+   <zorder>lblTitulo</zorder>
+   <zorder>barra_progreso</zorder>
    <zorder>frmLogo</zorder>
   </widget>
  </widget>
