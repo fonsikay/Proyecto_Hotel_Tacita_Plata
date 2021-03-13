@@ -55,31 +55,30 @@ class PantallaInicio_Aplicacion(QMainWindow):
         # Si el valor de la barra es menor o igual al 30%, se muestra un mensaje de información.
         if self.w_valor_barra_progreso <= 30:
 
-            QtCore.QTimer.singleShot(0, lambda: self.uiVentana.lblEstado.setText("Conectado con el servidor. . ."))
+            self.uiVentana.lblEstado.setText("Conectado con el servidor. . .")
 
         # Si el valor de la barra es menor o igual al 50%, se muestra un mensaje de información.
         elif self.w_valor_barra_progreso <= 50:
 
-            QtCore.QTimer.singleShot(0, lambda: self.uiVentana.lblEstado.setText("Obteniendo credenciales. . ."))
+            self.uiVentana.lblEstado.setText("Obteniendo credenciales. . .")
 
         # Si el valor de la barra es menor o igual al 90%, se muestra un mensaje de información y se modifica el texto
         # principal de la aplicación.
         elif self.w_valor_barra_progreso <= 90:
 
             self.uiVentana.lblTitulo.setText('Accediendo a Hotel Spa La Tacita de Plata App')
-            QtCore.QTimer.singleShot(0, lambda: self.uiVentana.lblEstado.setText("Iniciando aplicación. . ."))
+            self.uiVentana.lblEstado.setText("Iniciando aplicación. . .")
 
         # Si el valor es menor o igual al 100%, se muestra un mensaje de información.
         elif self.w_valor_barra_progreso <= 100:
 
-            QtCore.QTimer.singleShot(0, lambda: self.uiVentana.lblEstado.setText("Carga completa. . ."))
+            self.uiVentana.lblEstado.setText("Carga completa. . .")
 
         # Si el valor es mayor al 125%, se para el timer y se cierra la ventana.
         elif self.w_valor_barra_progreso > 120:
 
             # Se para el timer.
             self.w_timer.stop()
-
             # Se cierra la pantalla de inicio cuando se termina la carga de la pantalla.
             self.close()
 
