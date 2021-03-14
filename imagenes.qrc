@@ -1,7 +1,0 @@
-<RCC>
-  <qresource prefix="images">
-    <file>imagenes/arco 2.png</file>
-    <file>imagenes/logo_estrella.png</file>
-    <file>imagenes/logo.png</file>
-  </qresource>
-</RCC>

@@ -9,6 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from galeria_imagenes import imagen
 
 
 class ven_Inicio(object):
@@ -49,14 +50,14 @@ class ven_Inicio(object):
         self.lblTitulo.setObjectName("lblTitulo")
         self.frmArco = QtWidgets.QFrame(self.centralwidget)
         self.frmArco.setGeometry(QtCore.QRect(-17, 25, 431, 351))
-        self.frmArco.setStyleSheet("image: url(:/images/imagenes/arco 2.png)")
+        self.frmArco.setStyleSheet("image: url(:/imagenes/imagenes/arco.png);")
         self.frmArco.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frmArco.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frmArco.setObjectName("frmArco")
         self.frmEstrella = QtWidgets.QFrame(self.centralwidget)
         self.frmEstrella.setGeometry(QtCore.QRect(74, 114, 261, 91))
         self.frmEstrella.setStyleSheet("border:none;\n"
-"image: url(:/images/imagenes/logo_estrella.png);")
+"image: url(:/imagenes/imagenes/logo_estrella.png);")
         self.frmEstrella.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frmEstrella.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frmEstrella.setObjectName("frmEstrella")
@@ -128,7 +129,7 @@ class ven_Inicio(object):
         self.frmColorMasInfo.setObjectName("frmColorMasInfo")
         self.frmLogo = QtWidgets.QFrame(self.centralwidget)
         self.frmLogo.setGeometry(QtCore.QRect(330, 10, 221, 171))
-        self.frmLogo.setStyleSheet("image: url(:/images/imagenes/logo.png);")
+        self.frmLogo.setStyleSheet("image: url(:/imagenes/imagenes/logo.png);")
         self.frmLogo.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frmLogo.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frmLogo.setObjectName("frmLogo")
@@ -154,5 +155,5 @@ class ven_Inicio(object):
         self.lblTitulo.setText(_translate("ven_Inicio", "Inicializando Hotel Spa La Tacita de Plata App"))
         self.lblBienvenidos.setText(_translate("ven_Inicio", "BIENVENIDO"))
         self.lblDisenador.setText(_translate("ven_Inicio", "Diseñado por Fonsikay Design"))
-        self.lblEstado.setText(_translate("ven_Inicio", ""))
-import imagenes
+        self.lblEstado.setText(_translate("ven_Inicio", "Espere por favor. . . ."))
+

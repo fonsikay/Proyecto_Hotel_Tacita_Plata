@@ -97,7 +97,7 @@ color: rgb(32, 76, 123);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">image: url(:/images/imagenes/arco 2.png)</string>
+     <string notr="true">image: url(:/imagenes/imagenes/arco.png);</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -117,7 +117,7 @@ color: rgb(32, 76, 123);</string>
     </property>
     <property name="styleSheet">
      <string notr="true">border:none;
-image: url(:/images/imagenes/logo_estrella.png);</string>
+image: url(:/imagenes/imagenes/logo_estrella.png);</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -276,7 +276,7 @@ border: 5px solid rgb(171, 135, 10);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">image: url(:/images/imagenes/logo.png);</string>
+     <string notr="true">image: url(:/imagenes/imagenes/logo.png);</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -299,7 +299,7 @@ border: 5px solid rgb(171, 135, 10);</string>
   </widget>
  </widget>
  <resources>
-  <include location="imagenes.qrc"/>
+  <include location="imagen.qrc"/>
  </resources>
  <connections/>
 </ui>

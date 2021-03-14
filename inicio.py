@@ -3,24 +3,24 @@ import sys
 from PyQt5.QtWidgets import QMainWindow, QApplication, QGraphicsDropShadowEffect
 from PyQt5 import QtCore
 from PyQt5.QtGui import QColor
-from pantalla_inicio import ven_Inicio
+from ventanas.inicioUi import ven_Inicio
+from principal import Principal
 
 
 # Se crea la clase Aplicación.
 class PantallaInicio_Aplicacion(QMainWindow):
 
     # Se crea el método del constructor inicializador.
-    def __init__(self):
+    def __init__(self, parent=None):
 
         # Se invoca el constructor padre.
-        super().__init__()
+        super().__init__(parent)
         # Se crea una instancia de nuestra ventana diseñada.
         self.uiVentana = ven_Inicio()
-        # Se llama al método "setupUi" que esta en la clase "ven_Inicio" del archivo "pantalla_inicio.py".
+        # Se llama al método "setupUi" que esta en la clase "ven_Inicio" del archivo "inicioUi.py".
         self.uiVentana.setupUi(self)
         # Se indica el tamaño de la ventana para que no se pueda modificar su tamaño.
         self.setFixedSize(837, 601)
-
         # Se elimina la barra de titulo y la botonera.
         self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
         # Se elimina el fondo de la ventana para que sólo muestre la imagen.
@@ -79,8 +79,12 @@ class PantallaInicio_Aplicacion(QMainWindow):
 
             # Se para el timer.
             self.w_timer.stop()
-            # Se cierra la pantalla de inicio cuando se termina la carga de la pantalla.
-            self.close()
+            # Se oculta la pantalla de inicio cuando se termina la carga de la barra de progreso.
+            self.hide()
+            # Se llama a la pantalla principal del programa.
+            w_ven_principal = Principal(self)
+            # Se muestra la nueva pantalla de forma maximizada.
+            w_ven_principal.showMaximized()
 
         # Se incrementa el valor de la barra de progreso en 2 cada vez que pasa 100 milisegundos.
         self.w_valor_barra_progreso = self.w_valor_barra_progreso + 2
