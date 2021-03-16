@@ -1,6 +1,6 @@
 # Se importan las librerias necesarias.
 import sys
-from PyQt5.QtWidgets import QMainWindow, QApplication, QMessageBox
+from PyQt5.QtWidgets import QMainWindow, QApplication, QMessageBox, QPushButton
 from PyQt5 import QtCore
 from PyQt5.QtGui import QIcon
 from ventanas.principalUi import venPrincipal
@@ -45,8 +45,54 @@ class Principal(QMainWindow):
         # título de la aplicación.
         self.pro_funcionalidad_ventana()
 
+        # Se indica la pestaña inicial que se carga en la tabla central.
+        self.uiVentana.tablaContenido.setCurrentWidget(self.uiVentana.tabInicio)
+
+        self.uiVentana.btnInicio.setEnabled(False)
+        self.uiVentana.btnClientes.setEnabled(False)
+
+        # Se indica los métodos que se lanzan cuando se pulsan los botones del menú lateral.
+        self.uiVentana.btnInicio.clicked.connect(lambda: self.uiVentana.tablaContenido.setCurrentWidget(self.uiVentana.
+                                                                                                        tabInicio))
+        self.uiVentana.btnCuenta.clicked.connect(lambda: self.uiVentana.tablaContenido.setCurrentWidget(self.uiVentana.
+                                                                                                        tabCuenta))
+        self.uiVentana.btnAjustes.clicked.connect(lambda: self.uiVentana.tablaContenido.setCurrentWidget(self.uiVentana.
+                                                                                                         tabAjustes))
+
+        # Se recorren todos los botones que tiene el menú lateral izquierdo.
+        for w in self.uiVentana.frmMenuIzq.findChildren(QPushButton):
+
+            # Se indica el método que se lanza cuando en el botón indicado se hace click para cambiar su estilo.
+            w.clicked.connect(self.pro_aplicar_estilo_botones_menu)
+
         # Se muestra la pantalla de forma maximizada.
         self.showMaximized()
+
+    # Se crea el método para cambiar el estilo del botón presionado.
+    def pro_aplicar_estilo_botones_menu(self):
+
+        # Se reinicia el estilo de los otros botones.
+        for w in self.uiVentana.frmMenuIzq.findChildren(QPushButton):
+
+            # Si el nombre del botón no es igual al nombre del botón que se ha pulsado.
+            if w.objectName() != self.sender().objectName():
+
+                # Se indica que el estilo predeterminado con el color del fondo dorado para dejar el botón marcado.
+                w_estilo_por_defecto = w.styleSheet().replace("background-color:qlineargradient(spread:pad, x1:0.528409"
+                                                              ", y1:0.733, x2:0.5, y2:0.17, stop:0 #b28d0b, stop:1 "
+                                                              "#f5cc3d);", "")
+                # Se aplica como estilo por defecto.
+                w.setStyleSheet(w_estilo_por_defecto)
+
+        # Se aplica el nuevo estilo cuando se hace click en el botón.
+        # sender(): Botón clicado.
+        # Se obtiene el estilo que tiene el botón y se le agrega el fondo dorado.
+        w_nuevo_estilo = self.sender().styleSheet() + ("background-color:qlineargradient(spread:pad, x1:0.528409, "
+                                                       "y1:0.733, x2:0.5, y2:0.17, stop:0 #b28d0b, stop:1 #f5cc3d);")
+
+        # Se aplica el nuevo estilo al botón.
+        self.sender().setStyleSheet(w_nuevo_estilo)
+        return
 
     # Se crea el método que abre o cierra el menú lateral.
     def pro_mostrar_menu_izquierda(self):

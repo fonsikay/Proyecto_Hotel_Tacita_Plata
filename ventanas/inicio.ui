@@ -299,7 +299,7 @@ border: 5px solid rgb(171, 135, 10);</string>
   </widget>
  </widget>
  <resources>
-  <include location="imagen.qrc"/>
+  <include location="../galeria_imagenes/imagen.qrc"/>
  </resources>
  <connections/>
 </ui>

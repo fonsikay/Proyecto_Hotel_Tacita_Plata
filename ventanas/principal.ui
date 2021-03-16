@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1187</width>
-    <height>564</height>
+    <width>1300</width>
+    <height>700</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1300</width>
+    <height>700</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -133,7 +139,7 @@ QFrame#frmMenuIzq
 	border-right: 1px solid #b28d0b;
 }
 /* Estilo de los botones del menú izquierdo */
-QPushButton#btnInicio, #btnCuenta, #btnAjustes
+QPushButton#btnInicio, #btnCuenta, #btnAjustes, #btnClientes
 {
 	border-left: none;
 	border-top: none;
@@ -149,7 +155,7 @@ QPushButton#btnInicio, #btnCuenta, #btnAjustes
 }
 
 /* Borde inferior en los botones */
-QPushButton#btnInicio, #btnCuenta
+QPushButton#btnInicio, #btnCuenta, #btnClientes
 {
 	border-bottom: 1px solid rgb(171, 135, 10);
 }
@@ -161,13 +167,13 @@ QPushButton#btnAjustes
 }
 
 /* Color del botón Minimizar cuando se posiciona el cursor */
-QPushButton#btnInicio:hover, #btnCuenta:hover, #btnAjustes:hover
+QPushButton#btnInicio:hover, #btnCuenta:hover, #btnAjustes:hover, #btnClientes:hover
 {
   	background-color:qlineargradient(spread:pad, x1:0.528409, y1:0.733, 					x2:0.5, y2:0.17, stop:0 #b28d0b, stop:1 #f5cc3d);
 }
 
 /* Color del botón Minimizar cuando se pulsa el botón */
-QPushButton#btnInicio:pressed, #btnCuenta:pressed, #btnAjustes:pressed
+QPushButton#btnInicio:pressed, #btnCuenta:pressed, #btnAjustes:pressed, #btnClientes:pressed
 {
   
 	background-color: #b28d0b
@@ -176,19 +182,24 @@ QPushButton#btnInicio:pressed, #btnCuenta:pressed, #btnAjustes:pressed
 /* Icono para el botón Inicio */
 QPushButton#btnInicio
 {
-background-image: url(:/iconos/iconos/cil-home2.png);
+	background-image: url(:/iconos/iconos/cil-home2.png);
 }
 
 /* Icono para el botón Cuenta */
 QPushButton#btnCuenta
 {
-background-image: url(:/iconos/iconos/cil-user2.png);
+	background-image: url(:/iconos/iconos/cil-user2.png);
 }
 
 /* Icono para el botón Ajustes */
 QPushButton#btnAjustes
 {
-background-image: url(:/iconos/iconos/cil-settings2.png);
+	background-image: url(:/iconos/iconos/cil-settings3.png);
+}
+
+QPushButton#btnClientes
+{
+	background-image: url(:/iconos/iconos/cil-user-female.png);
 }
 
 /* ------------------ SECCIÓN DE LA BARRA DE MENÚ DERECHA ------------------ */
@@ -209,10 +220,10 @@ QFrame#frmCuerpo
 
 /* ----------------------- SECCIÓN CENTRAL DE CONTENIDO ---------------------- */
 
-/* Color de fondo de la sección */
+/* Color de fondo de la sección y eliminar el borde */
 QFrame#frmContenido 
 {
-	background-color: rgb(240, 240, 240);
+	border: none;
 }
 
 /* --------------------------- SECCIÓN BARRA DE ESTADO -------------------------- */
@@ -357,7 +368,7 @@ QFrame#frmBarraEstado
                 <string/>
                </property>
                <property name="icon">
-                <iconset resource="icono.qrc">
+                <iconset resource="../galeria_imagenes/icono.qrc">
                  <normaloff>:/iconos/iconos/cil-menu.png</normaloff>:/iconos/iconos/cil-menu.png</iconset>
                </property>
                <property name="iconSize">
@@ -373,6 +384,12 @@ QFrame#frmBarraEstado
           </item>
           <item>
            <widget class="QFrame" name="frmTitulo">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>50</height>
+             </size>
+            </property>
             <property name="styleSheet">
              <string notr="true"/>
             </property>
@@ -482,7 +499,7 @@ QFrame#frmBarraEstado
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="icono.qrc">
+             <iconset resource="../galeria_imagenes/icono.qrc">
               <normaloff>:/iconos/iconos/cil-window-minimize.png</normaloff>:/iconos/iconos/cil-window-minimize.png</iconset>
             </property>
             <property name="iconSize">
@@ -511,7 +528,7 @@ QFrame#frmBarraEstado
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="icono.qrc">
+             <iconset resource="../galeria_imagenes/icono.qrc">
               <normaloff>:/iconos/iconos/cil-window-restore.png</normaloff>:/iconos/iconos/cil-window-restore.png</iconset>
             </property>
             <property name="iconSize">
@@ -540,7 +557,7 @@ QFrame#frmBarraEstado
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="icono.qrc">
+             <iconset resource="../galeria_imagenes/icono.qrc">
               <normaloff>:/iconos/iconos/cil-x.png</normaloff>:/iconos/iconos/cil-x.png</iconset>
             </property>
             <property name="iconSize">
@@ -673,6 +690,19 @@ QFrame#frmBarraEstado
                </property>
               </widget>
              </item>
+             <item row="2" column="0">
+              <widget class="QPushButton" name="btnClientes">
+               <property name="minimumSize">
+                <size>
+                 <width>140</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>PushButton</string>
+               </property>
+              </widget>
+             </item>
             </layout>
            </widget>
           </item>
@@ -703,25 +733,469 @@ QFrame#frmBarraEstado
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QFrame" name="frmMenuDer">
-         <property name="maximumSize">
-          <size>
-           <width>127</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true"/>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QStackedWidget" name="tablaContenido">
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="currentIndex">
+             <number>1</number>
+            </property>
+            <widget class="QWidget" name="tabInicio">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(85, 170, 80);</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_6">
+              <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+               <widget class="QLabel" name="label_2">
+                <property name="text">
+                 <string>INICIO</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="tabCuenta">
+             <property name="styleSheet">
+              <string notr="true">QWidget #tabCuenta
+{
+	
+	
+	background-color: rgb(203, 203, 203);
+}
+
+QFrame#frmDatosLogin
+{
+	border-radius: 20px;
+	border: 2px solid rgb(198, 160, 30);
+	background-color: rgb(32, 76, 123);
+}
+
+QLabel#lblTituloLogin
+{
+	color: rgb(198, 160, 30);
+	font: 25 17pt &quot;Bahnschrift Light&quot;;
+
+}
+
+QLabel#lblUsuario, #lblPassword
+{
+	color: rgb(225, 225, 225);
+	font: 25 12pt &quot;Bahnschrift Light&quot;;
+}
+
+QLineEdit#txtUsuario, #txtPassword
+{
+	border: 1px solid rgb(198, 160, 30);
+	border-radius: 10px;
+	padding: 15px;
+	margin-top:10px;
+	margin-right:10px;
+	background-color: rgb(225, 225, 225);
+	color: rgb(77, 77, 77);
+	font: 25 10pt &quot;Bahnschrift Light&quot;;
+}
+
+QLineEdit#txtUsuario:hover, #txtPassword:hover
+{
+	border: 2px solid rgb(0, 66, 124);
+}
+
+QLineEdit#txtUsuario:focus, #txtPassword:focus
+{
+	border: 2px solid rgb(206, 206, 206);
+	color: rgb(52, 52, 52);
+}
+
+QCheckBox#chkSesion
+{
+	color: rgb(225, 225, 225);
+	font: 25 10pt &quot;Bahnschrift Light&quot;;
+}
+
+QCheckBox#chkSesion::indicator
+{
+	border: 1px solid rgb(198, 160, 30);
+	width: 20px;
+	height: 20px;
+	border-radius: 5px;
+	background-color: rgb(225, 225, 225);
+	margin-right: 3px;
+	padding: 2px;
+}
+
+QCheckBox#chkSesion::indicator:hover
+{
+	border: 1px solid rgb(0, 66, 124);
+}
+
+QCheckBox#chkSesion::indicator:checked
+{
+	background: 2px solid rgb(198, 160, 30);
+	background-image: url(:/iconos/iconos/cil-check.png);
+}
+
+QPushButton#btnLogin
+{
+	border: 1px solid rgb(198, 160, 30);
+	border-radius: 10px;
+	padding: 15px;
+	margin-top:10px;
+	margin-right:10px;
+	background-color: qlineargradient(spread:pad, x1:0.528, y1:0.858, x2:0.517409, y2:0.159, stop:0 rgba(23, 55, 87, 255), stop:1 rgba(42, 100, 165, 255));
+	color: rgb(225, 225, 225);
+	font: 25 10pt &quot;Bahnschrift Light&quot;;
+}
+
+/* Color del botón Minimizar cuando se posiciona el cursor */
+QPushButton#btnLogin:hover
+{
+  	background-color:qlineargradient(spread:pad, x1:0.528409, y1:0.733, 					x2:0.5, y2:0.17, stop:0 #b28d0b, stop:1 #f5cc3d);
+	font-weight: bold;
+}
+
+/* Color del botón Minimizar cuando se pulsa el botón */
+QPushButton#btnLogin:pressed
+{
+	font-weight: bold;
+	background-color: #b28d0b;
+}
+
+
+</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_7">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+               <widget class="QFrame" name="frmLogin">
+                <property name="styleSheet">
+                 <string notr="true">
+</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QGridLayout" name="gridLayout">
+                 <item row="1" column="0">
+                  <widget class="QFrame" name="frmDatosLogin">
+                   <property name="minimumSize">
+                    <size>
+                     <width>380</width>
+                     <height>350</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>380</width>
+                     <height>360</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true"/>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <widget class="QLabel" name="lblUsuario">
+                    <property name="geometry">
+                     <rect>
+                      <x>59</x>
+                      <y>90</y>
+                      <width>70</width>
+                      <height>40</height>
+                     </rect>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>70</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>70</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Bahnschrift Light</family>
+                      <pointsize>12</pointsize>
+                      <weight>3</weight>
+                      <italic>false</italic>
+                      <bold>false</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Usuario:</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                   <widget class="QLineEdit" name="txtUsuario">
+                    <property name="geometry">
+                     <rect>
+                      <x>159</x>
+                      <y>80</y>
+                      <width>200</width>
+                      <height>58</height>
+                     </rect>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>200</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>200</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true"/>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                    <property name="placeholderText">
+                     <string>Usuario</string>
+                    </property>
+                   </widget>
+                   <widget class="QLabel" name="lblPassword">
+                    <property name="geometry">
+                     <rect>
+                      <x>59</x>
+                      <y>157</y>
+                      <width>100</width>
+                      <height>40</height>
+                     </rect>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>100</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Bahnschrift Light</family>
+                      <pointsize>12</pointsize>
+                      <weight>3</weight>
+                      <italic>false</italic>
+                      <bold>false</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Contraseña:</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                   <widget class="QLineEdit" name="txtPassword">
+                    <property name="geometry">
+                     <rect>
+                      <x>159</x>
+                      <y>144</y>
+                      <width>200</width>
+                      <height>58</height>
+                     </rect>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>200</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>200</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true"/>
+                    </property>
+                    <property name="maxLength">
+                     <number>18</number>
+                    </property>
+                    <property name="echoMode">
+                     <enum>QLineEdit::Password</enum>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                    <property name="placeholderText">
+                     <string>Contraseña</string>
+                    </property>
+                   </widget>
+                   <widget class="QPushButton" name="btnLogin">
+                    <property name="geometry">
+                     <rect>
+                      <x>159</x>
+                      <y>259</y>
+                      <width>200</width>
+                      <height>60</height>
+                     </rect>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>200</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>200</width>
+                      <height>60</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>Acceder</string>
+                    </property>
+                   </widget>
+                   <widget class="QLabel" name="lblTituloLogin">
+                    <property name="geometry">
+                     <rect>
+                      <x>110</x>
+                      <y>21</y>
+                      <width>161</width>
+                      <height>31</height>
+                     </rect>
+                    </property>
+                    <property name="text">
+                     <string>Inicio de Sesión</string>
+                    </property>
+                   </widget>
+                   <widget class="QLabel" name="lblIconoUsuario">
+                    <property name="geometry">
+                     <rect>
+                      <x>19</x>
+                      <y>90</y>
+                      <width>40</width>
+                      <height>40</height>
+                     </rect>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>40</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="pixmap">
+                     <pixmap resource="../galeria_imagenes/icono.qrc">:/iconos/iconos/cil-user.png</pixmap>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                   <widget class="QCheckBox" name="chkSesion">
+                    <property name="geometry">
+                     <rect>
+                      <x>158</x>
+                      <y>220</y>
+                      <width>201</width>
+                      <height>31</height>
+                     </rect>
+                    </property>
+                    <property name="cursor">
+                     <cursorShape>PointingHandCursor</cursorShape>
+                    </property>
+                    <property name="text">
+                     <string>Mantener la sesión iniciada</string>
+                    </property>
+                   </widget>
+                   <widget class="QLabel" name="lblIconoPass">
+                    <property name="geometry">
+                     <rect>
+                      <x>19</x>
+                      <y>157</y>
+                      <width>40</width>
+                      <height>40</height>
+                     </rect>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>40</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="pixmap">
+                     <pixmap resource="../galeria_imagenes/icono.qrc">:/iconos/iconos/cil-https.png</pixmap>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="tabAjustes">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(85, 200, 255);</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_5">
+              <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+               <widget class="QLabel" name="label_4">
+                <property name="text">
+                 <string>AJUSTES</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </widget>
+          </item>
+         </layout>
         </widget>
        </item>
       </layout>
@@ -729,6 +1203,12 @@ QFrame#frmBarraEstado
     </item>
     <item>
      <widget class="QFrame" name="frmBarraEstado">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>25</height>
+       </size>
+      </property>
       <property name="maximumSize">
        <size>
         <width>16777215</width>
@@ -750,7 +1230,7 @@ QFrame#frmBarraEstado
   </widget>
  </widget>
  <resources>
-  <include location="icono.qrc"/>
+  <include location="../galeria_imagenes/icono.qrc"/>
  </resources>
  <connections/>
 </ui>

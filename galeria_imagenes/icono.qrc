@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="iconos">
+    <file>../iconos/cil-settings3.png</file>
     <file>../iconos/cil-3d.png</file>
     <file>../iconos/cil-4k.png</file>
     <file>../iconos/cil-airplay.png</file>
@@ -176,5 +177,7 @@
   </qresource>
   <qresource prefix="imagenes">
     <file>../imagenes/logo.png</file>
+    <file>../imagenes/3402.jpg</file>
+    <file>../imagenes/fondo_azul2.jpg</file>
   </qresource>
 </RCC>

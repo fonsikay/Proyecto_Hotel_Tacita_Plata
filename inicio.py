@@ -79,12 +79,12 @@ class PantallaInicio_Aplicacion(QMainWindow):
 
             # Se para el timer.
             self.w_timer.stop()
-            # Se oculta la pantalla de inicio cuando se termina la carga de la barra de progreso.
-            self.hide()
             # Se llama a la pantalla principal del programa.
             w_ven_principal = Principal(self)
             # Se muestra la nueva pantalla de forma maximizada.
             w_ven_principal.showMaximized()
+            # Se oculta la pantalla de inicio cuando se termina la carga de la barra de progreso.
+            self.hide()
 
         # Se incrementa el valor de la barra de progreso en 2 cada vez que pasa 100 milisegundos.
         self.w_valor_barra_progreso = self.w_valor_barra_progreso + 2

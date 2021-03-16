@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'pantalla_principal.ui'
+# Form implementation generated from reading ui file 'principal.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -11,11 +11,10 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from galeria_imagenes import icono
 
-
 class venPrincipal(object):
     def setupUi(self, venPrincipal):
         venPrincipal.setObjectName("venPrincipal")
-        venPrincipal.resize(1187, 564)
+        venPrincipal.resize(1300, 700)
         venPrincipal.setStyleSheet("")
         self.centralwidget = QtWidgets.QWidget(venPrincipal)
         self.centralwidget.setStyleSheet("/* ------------------------- SECCIONES DE LA APLICACION --------------------------*/\n"
@@ -133,7 +132,7 @@ class venPrincipal(object):
 "    border-right: 1px solid #b28d0b;\n"
 "}\n"
 "/* Estilo de los botones del menú izquierdo */\n"
-"QPushButton#btnInicio, #btnCuenta, #btnAjustes\n"
+"QPushButton#btnInicio, #btnCuenta, #btnAjustes, #btnClientes\n"
 "{\n"
 "    border-left: none;\n"
 "    border-top: none;\n"
@@ -149,7 +148,7 @@ class venPrincipal(object):
 "}\n"
 "\n"
 "/* Borde inferior en los botones */\n"
-"QPushButton#btnInicio, #btnCuenta\n"
+"QPushButton#btnInicio, #btnCuenta, #btnClientes\n"
 "{\n"
 "    border-bottom: 1px solid rgb(171, 135, 10);\n"
 "}\n"
@@ -161,13 +160,13 @@ class venPrincipal(object):
 "}\n"
 "\n"
 "/* Color del botón Minimizar cuando se posiciona el cursor */\n"
-"QPushButton#btnInicio:hover, #btnCuenta:hover, #btnAjustes:hover\n"
+"QPushButton#btnInicio:hover, #btnCuenta:hover, #btnAjustes:hover, #btnClientes:hover\n"
 "{\n"
 "      background-color:qlineargradient(spread:pad, x1:0.528409, y1:0.733,                     x2:0.5, y2:0.17, stop:0 #b28d0b, stop:1 #f5cc3d);\n"
 "}\n"
 "\n"
 "/* Color del botón Minimizar cuando se pulsa el botón */\n"
-"QPushButton#btnInicio:pressed, #btnCuenta:pressed, #btnAjustes:pressed\n"
+"QPushButton#btnInicio:pressed, #btnCuenta:pressed, #btnAjustes:pressed, #btnClientes:pressed\n"
 "{\n"
 "  \n"
 "    background-color: #b28d0b\n"
@@ -176,19 +175,24 @@ class venPrincipal(object):
 "/* Icono para el botón Inicio */\n"
 "QPushButton#btnInicio\n"
 "{\n"
-"background-image: url(:/iconos/iconos/cil-home2.png);\n"
+"    background-image: url(:/iconos/iconos/cil-home2.png);\n"
 "}\n"
 "\n"
 "/* Icono para el botón Cuenta */\n"
 "QPushButton#btnCuenta\n"
 "{\n"
-"background-image: url(:/iconos/iconos/cil-user2.png);\n"
+"    background-image: url(:/iconos/iconos/cil-user2.png);\n"
 "}\n"
 "\n"
 "/* Icono para el botón Ajustes */\n"
 "QPushButton#btnAjustes\n"
 "{\n"
-"background-image: url(:/iconos/iconos/cil-settings2.png);\n"
+"    background-image: url(:/iconos/iconos/cil-settings3.png);\n"
+"}\n"
+"\n"
+"QPushButton#btnClientes\n"
+"{\n"
+"    background-image: url(:/iconos/iconos/cil-user-female.png);\n"
 "}\n"
 "\n"
 "/* ------------------ SECCIÓN DE LA BARRA DE MENÚ DERECHA ------------------ */\n"
@@ -209,10 +213,10 @@ class venPrincipal(object):
 "\n"
 "/* ----------------------- SECCIÓN CENTRAL DE CONTENIDO ---------------------- */\n"
 "\n"
-"/* Color de fondo de la sección */\n"
+"/* Color de fondo de la sección y eliminar el borde */\n"
 "QFrame#frmContenido \n"
 "{\n"
-"    background-color: rgb(240, 240, 240);\n"
+"    border: none;\n"
 "}\n"
 "\n"
 "/* --------------------------- SECCIÓN BARRA DE ESTADO -------------------------- */\n"
@@ -271,6 +275,7 @@ class venPrincipal(object):
         self.horizontalLayout_4.addWidget(self.btnMenu)
         self.horizontalLayout_5.addWidget(self.frmMenu)
         self.frmTitulo = QtWidgets.QFrame(self.frmTituloContenedor)
+        self.frmTitulo.setMinimumSize(QtCore.QSize(0, 50))
         self.frmTitulo.setStyleSheet("")
         self.frmTitulo.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frmTitulo.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -375,6 +380,10 @@ class venPrincipal(object):
         self.btnCuenta.setMinimumSize(QtCore.QSize(140, 0))
         self.btnCuenta.setObjectName("btnCuenta")
         self.formLayout.setWidget(1, QtWidgets.QFormLayout.SpanningRole, self.btnCuenta)
+        self.btnClientes = QtWidgets.QPushButton(self.frmBotonesTop)
+        self.btnClientes.setMinimumSize(QtCore.QSize(140, 0))
+        self.btnClientes.setObjectName("btnClientes")
+        self.formLayout.setWidget(2, QtWidgets.QFormLayout.LabelRole, self.btnClientes)
         self.verticalLayout_2.addWidget(self.frmBotonesTop)
         self.btnAjustes = QtWidgets.QPushButton(self.frmMenuIzq)
         self.btnAjustes.setMinimumSize(QtCore.QSize(140, 0))
@@ -386,16 +395,232 @@ class venPrincipal(object):
         self.frmContenido.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frmContenido.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frmContenido.setObjectName("frmContenido")
+        self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.frmContenido)
+        self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_4.setSpacing(0)
+        self.verticalLayout_4.setObjectName("verticalLayout_4")
+        self.tablaContenido = QtWidgets.QStackedWidget(self.frmContenido)
+        self.tablaContenido.setStyleSheet("")
+        self.tablaContenido.setObjectName("tablaContenido")
+        self.tabInicio = QtWidgets.QWidget()
+        self.tabInicio.setStyleSheet("background-color: rgb(85, 170, 80);")
+        self.tabInicio.setObjectName("tabInicio")
+        self.verticalLayout_6 = QtWidgets.QVBoxLayout(self.tabInicio)
+        self.verticalLayout_6.setObjectName("verticalLayout_6")
+        self.label_2 = QtWidgets.QLabel(self.tabInicio)
+        self.label_2.setObjectName("label_2")
+        self.verticalLayout_6.addWidget(self.label_2, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
+        self.tablaContenido.addWidget(self.tabInicio)
+        self.tabCuenta = QtWidgets.QWidget()
+        self.tabCuenta.setStyleSheet("QWidget #tabCuenta\n"
+"{\n"
+"    \n"
+"    image: url(:/imagenes/imagenes/3402.jpg);\n"
+"}\n"
+"\n"
+"QFrame#frmDatosLogin\n"
+"{\n"
+"    border-radius: 20px;\n"
+"    border: 2px solid rgb(198, 160, 30);\n"
+"    background-color: rgb(32, 76, 123);\n"
+"}\n"
+"\n"
+"QLabel#lblTituloLogin\n"
+"{\n"
+"    color: rgb(198, 160, 30);\n"
+"    font: 25 17pt \"Bahnschrift Light\";\n"
+"\n"
+"}\n"
+"\n"
+"QLabel#lblUsuario, #lblPassword\n"
+"{\n"
+"    color: rgb(225, 225, 225);\n"
+"    font: 25 12pt \"Bahnschrift Light\";\n"
+"}\n"
+"\n"
+"QLineEdit#txtUsuario, #txtPassword\n"
+"{\n"
+"    border: 1px solid rgb(198, 160, 30);\n"
+"    border-radius: 10px;\n"
+"    padding: 15px;\n"
+"    margin-top:10px;\n"
+"    margin-right:10px;\n"
+"    background-color: rgb(225, 225, 225);\n"
+"    color: rgb(77, 77, 77);\n"
+"    font: 25 10pt \"Bahnschrift Light\";\n"
+"}\n"
+"\n"
+"QLineEdit#txtUsuario:hover, #txtPassword:hover\n"
+"{\n"
+"    border: 2px solid rgb(0, 66, 124);\n"
+"}\n"
+"\n"
+"QLineEdit#txtUsuario:focus, #txtPassword:focus\n"
+"{\n"
+"    border: 2px solid rgb(206, 206, 206);\n"
+"    color: rgb(52, 52, 52);\n"
+"}\n"
+"\n"
+"QCheckBox#chkSesion\n"
+"{\n"
+"    color: rgb(225, 225, 225);\n"
+"    font: 25 10pt \"Bahnschrift Light\";\n"
+"}\n"
+"\n"
+"QCheckBox#chkSesion::indicator\n"
+"{\n"
+"    border: 1px solid rgb(198, 160, 30);\n"
+"    width: 20px;\n"
+"    height: 20px;\n"
+"    border-radius: 5px;\n"
+"    background-color: rgb(225, 225, 225);\n"
+"    margin-right: 3px;\n"
+"    padding: 2px;\n"
+"}\n"
+"\n"
+"QCheckBox#chkSesion::indicator:hover\n"
+"{\n"
+"    border: 1px solid rgb(0, 66, 124);\n"
+"}\n"
+"\n"
+"QCheckBox#chkSesion::indicator:checked\n"
+"{\n"
+"    background: 2px solid rgb(198, 160, 30);\n"
+"    background-image: url(:/iconos/iconos/cil-check.png);\n"
+"}\n"
+"\n"
+"QPushButton#btnLogin\n"
+"{\n"
+"    border: 1px solid rgb(198, 160, 30);\n"
+"    border-radius: 10px;\n"
+"    padding: 15px;\n"
+"    margin-top:10px;\n"
+"    margin-right:10px;\n"
+"    background-color: qlineargradient(spread:pad, x1:0.528, y1:0.858, x2:0.517409, y2:0.159, stop:0 rgba(23, 55, 87, 255), stop:1 rgba(42, 100, 165, 255));\n"
+"    color: rgb(225, 225, 225);\n"
+"    font: 25 10pt \"Bahnschrift Light\";\n"
+"}\n"
+"\n"
+"/* Color del botón Minimizar cuando se posiciona el cursor */\n"
+"QPushButton#btnLogin:hover\n"
+"{\n"
+"      background-color:qlineargradient(spread:pad, x1:0.528409, y1:0.733,                     x2:0.5, y2:0.17, stop:0 #b28d0b, stop:1 #f5cc3d);\n"
+"    font-weight: bold;\n"
+"}\n"
+"\n"
+"/* Color del botón Minimizar cuando se pulsa el botón */\n"
+"QPushButton#btnLogin:pressed\n"
+"{\n"
+"    font-weight: bold;\n"
+"    background-color: #b28d0b;\n"
+"}\n"
+"\n"
+"\n"
+"")
+        self.tabCuenta.setObjectName("tabCuenta")
+        self.verticalLayout_7 = QtWidgets.QVBoxLayout(self.tabCuenta)
+        self.verticalLayout_7.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_7.setSpacing(0)
+        self.verticalLayout_7.setObjectName("verticalLayout_7")
+        self.frmLogin = QtWidgets.QFrame(self.tabCuenta)
+        self.frmLogin.setStyleSheet("\n"
+"")
+        self.frmLogin.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frmLogin.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frmLogin.setObjectName("frmLogin")
+        self.gridLayout = QtWidgets.QGridLayout(self.frmLogin)
+        self.gridLayout.setObjectName("gridLayout")
+        self.frmDatosLogin = QtWidgets.QFrame(self.frmLogin)
+        self.frmDatosLogin.setMinimumSize(QtCore.QSize(380, 350))
+        self.frmDatosLogin.setMaximumSize(QtCore.QSize(380, 360))
+        self.frmDatosLogin.setStyleSheet("")
+        self.frmDatosLogin.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frmDatosLogin.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frmDatosLogin.setObjectName("frmDatosLogin")
+        self.lblUsuario = QtWidgets.QLabel(self.frmDatosLogin)
+        self.lblUsuario.setGeometry(QtCore.QRect(59, 90, 70, 40))
+        self.lblUsuario.setMinimumSize(QtCore.QSize(70, 40))
+        self.lblUsuario.setMaximumSize(QtCore.QSize(70, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("Bahnschrift Light")
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(3)
+        self.lblUsuario.setFont(font)
+        self.lblUsuario.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.lblUsuario.setObjectName("lblUsuario")
+        self.txtUsuario = QtWidgets.QLineEdit(self.frmDatosLogin)
+        self.txtUsuario.setGeometry(QtCore.QRect(159, 80, 200, 58))
+        self.txtUsuario.setMinimumSize(QtCore.QSize(200, 40))
+        self.txtUsuario.setMaximumSize(QtCore.QSize(200, 16777215))
+        self.txtUsuario.setStyleSheet("")
+        self.txtUsuario.setAlignment(QtCore.Qt.AlignCenter)
+        self.txtUsuario.setObjectName("txtUsuario")
+        self.lblPassword = QtWidgets.QLabel(self.frmDatosLogin)
+        self.lblPassword.setGeometry(QtCore.QRect(59, 157, 100, 40))
+        self.lblPassword.setMinimumSize(QtCore.QSize(100, 40))
+        font = QtGui.QFont()
+        font.setFamily("Bahnschrift Light")
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(3)
+        self.lblPassword.setFont(font)
+        self.lblPassword.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.lblPassword.setObjectName("lblPassword")
+        self.txtPassword = QtWidgets.QLineEdit(self.frmDatosLogin)
+        self.txtPassword.setGeometry(QtCore.QRect(159, 144, 200, 58))
+        self.txtPassword.setMinimumSize(QtCore.QSize(200, 40))
+        self.txtPassword.setMaximumSize(QtCore.QSize(200, 16777215))
+        self.txtPassword.setStyleSheet("")
+        self.txtPassword.setMaxLength(18)
+        self.txtPassword.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.txtPassword.setAlignment(QtCore.Qt.AlignCenter)
+        self.txtPassword.setObjectName("txtPassword")
+        self.btnLogin = QtWidgets.QPushButton(self.frmDatosLogin)
+        self.btnLogin.setGeometry(QtCore.QRect(159, 259, 200, 60))
+        self.btnLogin.setMinimumSize(QtCore.QSize(200, 30))
+        self.btnLogin.setMaximumSize(QtCore.QSize(200, 60))
+        self.btnLogin.setObjectName("btnLogin")
+        self.lblTituloLogin = QtWidgets.QLabel(self.frmDatosLogin)
+        self.lblTituloLogin.setGeometry(QtCore.QRect(110, 21, 161, 31))
+        self.lblTituloLogin.setObjectName("lblTituloLogin")
+        self.lblIconoLogin = QtWidgets.QLabel(self.frmDatosLogin)
+        self.lblIconoLogin.setGeometry(QtCore.QRect(19, 90, 40, 40))
+        self.lblIconoLogin.setMinimumSize(QtCore.QSize(40, 40))
+        self.lblIconoLogin.setText("")
+        self.lblIconoLogin.setPixmap(QtGui.QPixmap(":/iconos/iconos/cil-user.png"))
+        self.lblIconoLogin.setAlignment(QtCore.Qt.AlignCenter)
+        self.lblIconoLogin.setObjectName("lblIconoLogin")
+        self.chkSesion = QtWidgets.QCheckBox(self.frmDatosLogin)
+        self.chkSesion.setGeometry(QtCore.QRect(158, 220, 201, 31))
+        self.chkSesion.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.chkSesion.setObjectName("chkSesion")
+        self.label_6 = QtWidgets.QLabel(self.frmDatosLogin)
+        self.label_6.setGeometry(QtCore.QRect(19, 157, 40, 40))
+        self.label_6.setMinimumSize(QtCore.QSize(40, 40))
+        self.label_6.setText("")
+        self.label_6.setPixmap(QtGui.QPixmap(":/iconos/iconos/cil-https.png"))
+        self.label_6.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_6.setObjectName("label_6")
+        self.gridLayout.addWidget(self.frmDatosLogin, 1, 0, 1, 1)
+        self.verticalLayout_7.addWidget(self.frmLogin, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
+        self.tablaContenido.addWidget(self.tabCuenta)
+        self.tabAjustes = QtWidgets.QWidget()
+        self.tabAjustes.setStyleSheet("background-color: rgb(85, 200, 255);")
+        self.tabAjustes.setObjectName("tabAjustes")
+        self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.tabAjustes)
+        self.verticalLayout_5.setObjectName("verticalLayout_5")
+        self.label_4 = QtWidgets.QLabel(self.tabAjustes)
+        self.label_4.setObjectName("label_4")
+        self.verticalLayout_5.addWidget(self.label_4, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
+        self.tablaContenido.addWidget(self.tabAjustes)
+        self.verticalLayout_4.addWidget(self.tablaContenido)
         self.horizontalLayout.addWidget(self.frmContenido)
-        self.frmMenuDer = QtWidgets.QFrame(self.frmCuerpo)
-        self.frmMenuDer.setMaximumSize(QtCore.QSize(127, 16777215))
-        self.frmMenuDer.setStyleSheet("")
-        self.frmMenuDer.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frmMenuDer.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frmMenuDer.setObjectName("frmMenuDer")
-        self.horizontalLayout.addWidget(self.frmMenuDer)
         self.verticalLayout.addWidget(self.frmCuerpo)
         self.frmBarraEstado = QtWidgets.QFrame(self.centralwidget)
+        self.frmBarraEstado.setMinimumSize(QtCore.QSize(0, 25))
         self.frmBarraEstado.setMaximumSize(QtCore.QSize(16777215, 30))
         self.frmBarraEstado.setStyleSheet("")
         self.frmBarraEstado.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -405,6 +630,7 @@ class venPrincipal(object):
         venPrincipal.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(venPrincipal)
+        self.tablaContenido.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(venPrincipal)
 
     def retranslateUi(self, venPrincipal):
@@ -413,4 +639,14 @@ class venPrincipal(object):
         self.lblLogo.setText(_translate("venPrincipal", "Hotel Spa La Tacita de Plata"))
         self.btnInicio.setText(_translate("venPrincipal", "Inicio"))
         self.btnCuenta.setText(_translate("venPrincipal", "Cuenta"))
+        self.btnClientes.setText(_translate("venPrincipal", "PushButton"))
         self.btnAjustes.setText(_translate("venPrincipal", "Ajustes"))
+        self.label_2.setText(_translate("venPrincipal", "INICIO"))
+        self.lblUsuario.setText(_translate("venPrincipal", "Usuario:"))
+        self.txtUsuario.setPlaceholderText(_translate("venPrincipal", "Usuario"))
+        self.lblPassword.setText(_translate("venPrincipal", "Contraseña:"))
+        self.txtPassword.setPlaceholderText(_translate("venPrincipal", "Contraseña"))
+        self.btnLogin.setText(_translate("venPrincipal", "Acceder"))
+        self.lblTituloLogin.setText(_translate("venPrincipal", "Inicio de Sesión"))
+        self.chkSesion.setText(_translate("venPrincipal", "Mantener la sesión iniciada"))
+        self.label_4.setText(_translate("venPrincipal", "AJUSTES"))
