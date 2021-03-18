@@ -8,16 +8,25 @@ from passlib.hash import pbkdf2_sha256
 from PyQt5.QtWidgets import QMessageBox
 from PyQt5.QtGui import QIcon
 
+# ----------------------------------------------------------------------------------------------------------------------
+#   BLOQUE DE IMPORTACIONES DE OTROS ARCHIVOS CREADOS PARA LA APLICACIÓN
+# ----------------------------------------------------------------------------------------------------------------------
+
+from clases.funcionalidad_menu_lateral import pro_activar_botones_menu
+
 
 # ----------------------------------------------------------------------------------------------------------------------
 #   BLOQUE DE MÉTODOS DE LA FUNCIONALIDAD DE LA VENTANA.
 # ----------------------------------------------------------------------------------------------------------------------
 
+# Método que tiene la declaración de los controladores de eventos (Event Handler) del botón de logueo del usuario.
 def pro_click_login_usuario(self):
 
     self.uiVentana.btnLogin.clicked.connect(lambda: pro_login_usuario(self))
 
 
+# Método que se lanza cuando se pulsa el botón de "Acceder" en la pestaña de logueo y comprueba si el usuario y la
+# contraseña son correctos y si es así, se activan los botones de la aplicación.
 def pro_login_usuario(self):
 
     # Se obtiene el valor del usuario y la contraseña introducida.
@@ -89,6 +98,9 @@ def pro_comprobar_usuario_bbdd(self, w_email, w_contrasena):
                                                                                    w_datos_usuarios[3]),
                                          w_titulo='Conexión establecida',
                                          w_mensaje_secundario=None)
+
+                    # Se activan los botones del menú lateral.
+                    pro_activar_botones_menu(self, True)
 
                 # Si la validación de la contraseña encriptada no es correcta, se muestra un mensaje de error por
                 # pantalla.

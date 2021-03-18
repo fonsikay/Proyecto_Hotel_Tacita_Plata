@@ -3,7 +3,12 @@
 # ----------------------------------------------------------------------------------------------------------------------
 
 from PyQt5.QtGui import QIcon
-from PyQt5 import QtCore
+
+# ----------------------------------------------------------------------------------------------------------------------
+#   BLOQUE DE IMPORTACIONES DE OTROS ARCHIVOS CREADOS PARA LA APLICACIÓN
+# ----------------------------------------------------------------------------------------------------------------------
+
+from clases.funcionalidad_menu_lateral import pro_mostrar_menu_izquierda
 
 
 # ----------------------------------------------------------------------------------------------------------------------
@@ -68,37 +73,6 @@ def pro_cerrar(self):
 
     # Se cierra la ventana.
     self.close()
-
-
-# Método que se lanza al pulsar el botón de "Menú" lateral para abrir o cerrar el menú.
-def pro_mostrar_menu_izquierda(self):
-
-    # Se obtiene el valor del ancho del frame del menú izquierdo.
-    w_ancho = self.uiVentana.frmMenuIzq.width()
-
-    # Si el ancho del bloque es el mínimo, es que está el menú cerrado.
-    if w_ancho == 50:
-
-        # Se abre el menú indicando el valor final.
-        w_nuevo_ancho = 140
-
-    # Si el ancho del bloque es el máximo, es que está el menú abierto.
-    else:
-
-        # Se cierra el menú indicando el valor inicial.
-        w_nuevo_ancho = 50
-
-    # Se crea la animación del menú.
-    self.w_animacion = QtCore.QPropertyAnimation(self.uiVentana.frmMenuIzq, b"minimumWidth")
-    # Se indica el tiempo que tarda en abrirse o cerrarse el menú lateral.
-    self.w_animacion.setDuration(250)
-    # Se indica que se inicia en el valor minímo del ancho del bloque del menú.
-    self.w_animacion.setStartValue(w_ancho)
-    # Se indica que finaliza en el valor máximo del ancho del bloque del menú.
-    self.w_animacion.setEndValue(w_nuevo_ancho)
-    self.w_animacion.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
-    # Se inicia la animación del menú lateral.
-    self.w_animacion.start()
 
 
 # Método donde se guardan las variables fijas necesarias.
