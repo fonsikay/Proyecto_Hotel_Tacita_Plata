@@ -31,12 +31,9 @@ def pro_inicializacion_botones_menu(self):
     # pestaña de "Cuenta" y para ello se indica el estado a valor "False".
     pro_activar_botones_menu(self, w_estado=False)
 
-    # Se indica el color de fondo de los botones deshabilitados.
-    self.uiVentana.btnInicio.setStyleSheet('background-color: #173757;')
-    self.uiVentana.btnClientes.setStyleSheet('background-color: #173757;')
-
     # Se indica la pestaña inicial que se carga en la ventana.
     self.uiVentana.tablaContenido.setCurrentWidget(self.uiVentana.tabCuenta)
+    self.uiVentana.txtUsuario.setFocus(True)
 
     # Se indica que el botón "Cuenta" que es el que se muestra la pestaña de forma inicial, aparezca con la línea de
     # estar activo dicho botón, simulando a si lo hubieran marcado.
@@ -51,19 +48,61 @@ def pro_activar_botones_menu(self, w_estado):
     self.uiVentana.btnInicio.setEnabled(w_estado)
     self.uiVentana.btnClientes.setEnabled(w_estado)
 
+    # Si el estado del boton es de activar, se quita el color de fondo de los botones.
+    if w_estado:
+
+        # Se indica el color de fondo de los botones deshabilitados.
+        self.uiVentana.btnInicio.setStyleSheet('background-color: transparent;')
+        self.uiVentana.btnClientes.setStyleSheet('background-color: transparent;')
+
+    # Si el estado del boton es de desactivar, se cambia el color de fondo del botón.
+    else:
+
+        # Se indica el color de fondo de los botones deshabilitados.
+        self.uiVentana.btnInicio.setStyleSheet('background-color: #173757;')
+        self.uiVentana.btnClientes.setStyleSheet('background-color: #173757;')
+
 
 # Método que tiene la declaración de los controladores de eventos (Event Handler) de los botones del menú lateral.
 def pro_click_menu_izquierdo(self):
 
     # Se indica las pestaña que se muestra en la sección central de la ventana cuando un botón del menú es presionado.
-    self.uiVentana.btnInicio.clicked.connect(lambda: self.uiVentana.tablaContenido.setCurrentWidget(self.uiVentana.
-                                                                                                    tabInicio))
-    self.uiVentana.btnCuenta.clicked.connect(lambda: self.uiVentana.tablaContenido.setCurrentWidget(self.uiVentana.
-                                                                                                    tabCuenta))
-    self.uiVentana.btnClientes.clicked.connect(lambda: self.uiVentana.tablaContenido.setCurrentWidget(self.uiVentana.
-                                                                                                      tabClientes))
-    self.uiVentana.btnAjustes.clicked.connect(lambda: self.uiVentana.tablaContenido.setCurrentWidget(self.uiVentana.
-                                                                                                     tabAjustes))
+    self.uiVentana.btnInicio.clicked.connect(lambda: pro_opcion_menu_inicio(self))
+    self.uiVentana.btnCuenta.clicked.connect(lambda: pro_opcion_menu_cuenta(self))
+    self.uiVentana.btnClientes.clicked.connect(lambda: pro_opcion_menu_clientes(self))
+    self.uiVentana.btnAjustes.clicked.connect(lambda: pro_opcion_menu_ajustes(self))
+
+
+# Método que se lanza cuando se hace click en el botón "Inicio" del menú lateral e indica que se muestre la pestaña
+# "Inicio".
+def pro_opcion_menu_inicio(self):
+
+    self.uiVentana.tablaContenido.setCurrentWidget(self.uiVentana.tabInicio)
+
+
+# Método que se lanza cuando se hace click en el botón "Cuenta" del menú lateral e indica que se muestre la pestaña
+# "Cuenta" limpiando los campos de texto y el check.
+def pro_opcion_menu_cuenta(self):
+
+    self.uiVentana.tablaContenido.setCurrentWidget(self.uiVentana.tabCuenta)
+    self.uiVentana.txtUsuario.setText('')
+    self.uiVentana.txtPassword.setText('')
+    self.uiVentana.chkSesion.setChecked(False)
+    self.uiVentana.txtUsuario.setFocus(True)
+
+
+# Método que se lanza cuando se hace click en el botón "Clientes" del menú lateral e indica que se muestre la pestaña
+# "Clientes".
+def pro_opcion_menu_clientes(self):
+
+    self.uiVentana.tablaContenido.setCurrentWidget(self.uiVentana.tabClientes)
+
+
+# Método que se lanza cuando se hace click en el botón "Ajustes" del menú lateral e indica que se muestre la pestaña
+# "Ajustes".
+def pro_opcion_menu_ajustes(self):
+
+    self.uiVentana.tablaContenido.setCurrentWidget(self.uiVentana.tabAjustes)
 
 
 # Método para poner el fondo dorado al botón del menú cuando se haya pulsado en un botón de dicho menú para indicar

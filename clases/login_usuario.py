@@ -116,6 +116,9 @@ def pro_comprobar_usuario_bbdd(self, w_email, w_contrasena):
             # por pantalla.
             else:
 
+                # Se desactivan los botones del menú lateral.
+                pro_activar_botones_menu(self, False)
+
                 pro_mensaje_un_boton(self,
                                      w_tipo_ventana='Error',
                                      w_mensaje='El usuario es incorrecto',

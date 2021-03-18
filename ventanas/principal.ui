@@ -794,7 +794,7 @@ QFrame#frmBarraEstado
              <string notr="true"/>
             </property>
             <property name="currentIndex">
-             <number>0</number>
+             <number>2</number>
             </property>
             <widget class="QWidget" name="tabClientes">
              <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -1195,6 +1195,9 @@ QPushButton#btnLogin:pressed
                     <property name="text">
                      <string>Mantener la sesión iniciada</string>
                     </property>
+                    <property name="checked">
+                     <bool>false</bool>
+                    </property>
                    </widget>
                    <widget class="QLabel" name="lblIconoPass">
                     <property name="geometry">
@@ -1278,6 +1281,20 @@ QPushButton#btnLogin:pressed
    </layout>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>txtUsuario</tabstop>
+  <tabstop>txtPassword</tabstop>
+  <tabstop>chkSesion</tabstop>
+  <tabstop>btnLogin</tabstop>
+  <tabstop>btnInicio</tabstop>
+  <tabstop>btnCuenta</tabstop>
+  <tabstop>btnClientes</tabstop>
+  <tabstop>btnAjustes</tabstop>
+  <tabstop>btnMenu</tabstop>
+  <tabstop>btnMinimizar</tabstop>
+  <tabstop>btnCerrar</tabstop>
+  <tabstop>btnMaximizar</tabstop>
+ </tabstops>
  <resources>
   <include location="../galeria_imagenes/icono.qrc"/>
  </resources>

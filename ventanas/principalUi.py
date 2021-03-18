@@ -611,6 +611,7 @@ class venPrincipal(object):
         self.chkSesion = QtWidgets.QCheckBox(self.frmDatosLogin)
         self.chkSesion.setGeometry(QtCore.QRect(158, 220, 201, 31))
         self.chkSesion.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.chkSesion.setChecked(False)
         self.chkSesion.setObjectName("chkSesion")
         self.lblIconoPass = QtWidgets.QLabel(self.frmDatosLogin)
         self.lblIconoPass.setGeometry(QtCore.QRect(19, 157, 40, 40))
@@ -645,8 +646,19 @@ class venPrincipal(object):
         venPrincipal.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(venPrincipal)
-        self.tablaContenido.setCurrentIndex(0)
+        self.tablaContenido.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(venPrincipal)
+        venPrincipal.setTabOrder(self.txtUsuario, self.txtPassword)
+        venPrincipal.setTabOrder(self.txtPassword, self.chkSesion)
+        venPrincipal.setTabOrder(self.chkSesion, self.btnLogin)
+        venPrincipal.setTabOrder(self.btnLogin, self.btnInicio)
+        venPrincipal.setTabOrder(self.btnInicio, self.btnCuenta)
+        venPrincipal.setTabOrder(self.btnCuenta, self.btnClientes)
+        venPrincipal.setTabOrder(self.btnClientes, self.btnAjustes)
+        venPrincipal.setTabOrder(self.btnAjustes, self.btnMenu)
+        venPrincipal.setTabOrder(self.btnMenu, self.btnMinimizar)
+        venPrincipal.setTabOrder(self.btnMinimizar, self.btnCerrar)
+        venPrincipal.setTabOrder(self.btnCerrar, self.btnMaximizar)
 
     def retranslateUi(self, venPrincipal):
         _translate = QtCore.QCoreApplication.translate
