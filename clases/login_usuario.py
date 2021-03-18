@@ -12,7 +12,7 @@ from PyQt5.QtGui import QIcon
 #   BLOQUE DE IMPORTACIONES DE OTROS ARCHIVOS CREADOS PARA LA APLICACIÓN
 # ----------------------------------------------------------------------------------------------------------------------
 
-from clases.funcionalidad_menu_lateral import pro_activar_botones_menu
+from clases.menu_lateral import pro_activar_botones_menu
 
 
 # ----------------------------------------------------------------------------------------------------------------------

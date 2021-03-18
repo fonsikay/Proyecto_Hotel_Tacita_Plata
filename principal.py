@@ -7,9 +7,14 @@ from PyQt5.QtWidgets import QMainWindow, QApplication
 from PyQt5 import QtCore
 from PyQt5.QtGui import QIcon
 from ventanas.principalUi import venPrincipal
-import clases.funcionalidad_menu_lateral as menu_lateral
+
+# ----------------------------------------------------------------------------------------------------------------------
+#   BLOQUE DE IMPORTACIONES DE OTROS ARCHIVOS CREADOS PARA LA APLICACIÓN
+# ----------------------------------------------------------------------------------------------------------------------
+
+import clases.menu_lateral as menu_lateral
 import clases.funcionalidad_ventana as funcionalidad_ventana
-import clases.funcionalidad_login_usuario as login_usuario
+import clases.opciones_menu as opciones_menu
 
 # ----------------------------------------------------------------------------------------------------------------------
 #   BLOQUE DE CREACION DE LA CLASE PRINCIPAL
@@ -36,11 +41,11 @@ class Principal(QMainWindow):
         # "funcionalidad_ventana.py" de la carpeta "clases".
         funcionalidad_ventana.pro_funcionalidad_ventana(self)
         # Se llama al método que realiza la funcionalidad del menú lateral izquierdo que está en el archivo
-        # "funcionalidad_menu_lateral.py" de la carpeta "clases".
+        # "menu_lateral.py" de la carpeta "clases".
         menu_lateral.pro_funcionalidad_menu(self)
-        # Se llama al método que realiza la funcionalidad del login del usuario en la aplicación que está en el archivo
-        # "funcionalidad_login_usuario.py".
-        login_usuario.pro_click_login_usuario(self)
+        # Se llama al método que realiza la funcionalidad de los distintos opciones de menú del menú lateral que está
+        # en el archivo "opciones_menu.py" de la carpeta "clases".
+        opciones_menu.pro_opciones_menu(self)
         # Se muestra la pantalla de forma maximizada.
         self.showMaximized()
 

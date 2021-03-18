@@ -93,7 +93,7 @@ def pro_aplicar_estilo_botones_menu(self):
     # Se aplica el nuevo estilo cuando se hace click en el botón.
     # sender(): Botón clicado.
     # Se obtiene el estilo que tiene el botón y se le agrega el fondo dorado.
-    w_nuevo_estilo = self.sender().styleSheet() + ("border-left: 3px solid #f5cc3d;")
+    w_nuevo_estilo = self.sender().styleSheet() + "border-left: 3px solid #f5cc3d;"
 
     # Se aplica el nuevo estilo al botón.
     self.sender().setStyleSheet(w_nuevo_estilo)
