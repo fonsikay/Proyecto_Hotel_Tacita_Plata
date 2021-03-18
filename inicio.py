@@ -14,7 +14,7 @@ class PantallaInicio_Aplicacion(QMainWindow):
     def __init__(self, parent=None):
 
         # Se invoca el constructor padre.
-        super().__init__(parent)
+        super(PantallaInicio_Aplicacion, self).__init__(parent)
         # Se crea una instancia de nuestra ventana diseñada.
         self.uiVentana = ven_Inicio()
         # Se llama al método "setupUi" que esta en la clase "ven_Inicio" del archivo "inicioUi.py".
@@ -79,12 +79,12 @@ class PantallaInicio_Aplicacion(QMainWindow):
 
             # Se para el timer.
             self.w_timer.stop()
+            # Se oculta la pantalla de inicio cuando se termina la carga de la barra de progreso.
+            self.close()
             # Se llama a la pantalla principal del programa.
             w_ven_principal = Principal(self)
             # Se muestra la nueva pantalla de forma maximizada.
-            w_ven_principal.showMaximized()
-            # Se oculta la pantalla de inicio cuando se termina la carga de la barra de progreso.
-            self.hide()
+            w_ven_principal.show()
 
         # Se incrementa el valor de la barra de progreso en 2 cada vez que pasa 100 milisegundos.
         self.w_valor_barra_progreso = self.w_valor_barra_progreso + 2

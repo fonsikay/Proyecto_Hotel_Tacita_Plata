@@ -37,7 +37,7 @@ QFrame#frmCabecera, #frmBotonera, #frmMenu, #frmMenuDer, #frmMenuIzq, #frmBarraE
 /* Color de la linea inferior */
 QFrame#frmCabecera
 {
-border-bottom: 1px solid rgb(171, 135, 10);
+	border-bottom: 1px solid rgb(171, 135, 10);
 }
 
 /* - SECCIÓN DE LA BOTONERA DE MENU E ICONO DE LA BARRA DE TITULO -*/
@@ -57,7 +57,6 @@ QPushButton#btnMenu:hover
 /* Color del botón Minimizar cuando se pulsa el botón */
 QPushButton#btnMenu:pressed
 {
-  
 	background-color: #b28d0b
 }
 
@@ -138,6 +137,7 @@ QFrame#frmMenuIzq
 	border-bottom: none;
 	border-right: 1px solid #b28d0b;
 }
+
 /* Estilo de los botones del menú izquierdo */
 QPushButton#btnInicio, #btnCuenta, #btnAjustes, #btnClientes
 {
@@ -175,7 +175,6 @@ QPushButton#btnInicio:hover, #btnCuenta:hover, #btnAjustes:hover, #btnClientes:h
 /* Color del botón Minimizar cuando se pulsa el botón */
 QPushButton#btnInicio:pressed, #btnCuenta:pressed, #btnAjustes:pressed, #btnClientes:pressed
 {
-  
 	background-color: #b28d0b
 }
 
@@ -197,6 +196,7 @@ QPushButton#btnAjustes
 	background-image: url(:/iconos/iconos/cil-settings3.png);
 }
 
+/* Icono para el botón Clientes */
 QPushButton#btnClientes
 {
 	background-image: url(:/iconos/iconos/cil-user-female.png);
@@ -361,6 +361,9 @@ QFrame#frmBarraEstado
                <property name="cursor">
                 <cursorShape>PointingHandCursor</cursorShape>
                </property>
+               <property name="toolTip">
+                <string>Despliega el Menú</string>
+               </property>
                <property name="styleSheet">
                 <string notr="true"/>
                </property>
@@ -492,6 +495,9 @@ QFrame#frmBarraEstado
             <property name="cursor">
              <cursorShape>PointingHandCursor</cursorShape>
             </property>
+            <property name="toolTip">
+             <string>Minimizar</string>
+            </property>
             <property name="styleSheet">
              <string notr="true"/>
             </property>
@@ -521,6 +527,9 @@ QFrame#frmBarraEstado
             <property name="cursor">
              <cursorShape>PointingHandCursor</cursorShape>
             </property>
+            <property name="toolTip">
+             <string>Maximizar</string>
+            </property>
             <property name="styleSheet">
              <string notr="true"/>
             </property>
@@ -549,6 +558,9 @@ QFrame#frmBarraEstado
             </property>
             <property name="cursor">
              <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="toolTip">
+             <string>Cerrar</string>
             </property>
             <property name="styleSheet">
              <string notr="true"/>
@@ -613,7 +625,7 @@ QFrame#frmBarraEstado
           <string notr="true"/>
          </property>
          <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
+          <enum>QFrame::Box</enum>
          </property>
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
@@ -640,10 +652,13 @@ QFrame#frmBarraEstado
           <item>
            <widget class="QFrame" name="frmBotonesTop">
             <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
+             <enum>QFrame::NoFrame</enum>
             </property>
             <property name="frameShadow">
              <enum>QFrame::Raised</enum>
+            </property>
+            <property name="lineWidth">
+             <number>0</number>
             </property>
             <layout class="QFormLayout" name="formLayout">
              <property name="horizontalSpacing">
@@ -672,6 +687,12 @@ QFrame#frmBarraEstado
                  <height>0</height>
                 </size>
                </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="toolTip">
+                <string>Sección &quot;Inicio&quot;</string>
+               </property>
                <property name="text">
                 <string>Inicio</string>
                </property>
@@ -685,6 +706,12 @@ QFrame#frmBarraEstado
                  <height>0</height>
                 </size>
                </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="toolTip">
+                <string>Sección &quot;Cuenta&quot;</string>
+               </property>
                <property name="text">
                 <string>Cuenta</string>
                </property>
@@ -697,6 +724,12 @@ QFrame#frmBarraEstado
                  <width>140</width>
                  <height>0</height>
                 </size>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="toolTip">
+                <string>Sección &quot;Clientes&quot;</string>
                </property>
                <property name="text">
                 <string>PushButton</string>
@@ -713,6 +746,12 @@ QFrame#frmBarraEstado
               <width>140</width>
               <height>0</height>
              </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="toolTip">
+             <string>Sección &quot;Ajustes&quot;</string>
             </property>
             <property name="text">
              <string>Ajustes</string>
@@ -755,8 +794,19 @@ QFrame#frmBarraEstado
              <string notr="true"/>
             </property>
             <property name="currentIndex">
-             <number>1</number>
+             <number>0</number>
             </property>
+            <widget class="QWidget" name="tabClientes">
+             <layout class="QVBoxLayout" name="verticalLayout_3">
+              <item>
+               <widget class="QLabel" name="label">
+                <property name="text">
+                 <string>Clientes</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
             <widget class="QWidget" name="tabInicio">
              <property name="styleSheet">
               <string notr="true">background-color: rgb(85, 170, 80);</string>
@@ -899,8 +949,7 @@ QPushButton#btnLogin:pressed
               <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
                <widget class="QFrame" name="frmLogin">
                 <property name="styleSheet">
-                 <string notr="true">
-</string>
+                 <string notr="true"/>
                 </property>
                 <property name="frameShape">
                  <enum>QFrame::StyledPanel</enum>
@@ -1206,13 +1255,13 @@ QPushButton#btnLogin:pressed
       <property name="minimumSize">
        <size>
         <width>0</width>
-        <height>25</height>
+        <height>15</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
         <width>16777215</width>
-        <height>30</height>
+        <height>15</height>
        </size>
       </property>
       <property name="styleSheet">

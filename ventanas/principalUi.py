@@ -11,10 +11,12 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from galeria_imagenes import icono
 
+
 class venPrincipal(object):
     def setupUi(self, venPrincipal):
         venPrincipal.setObjectName("venPrincipal")
         venPrincipal.resize(1300, 700)
+        venPrincipal.setMinimumSize(QtCore.QSize(1300, 700))
         venPrincipal.setStyleSheet("")
         self.centralwidget = QtWidgets.QWidget(venPrincipal)
         self.centralwidget.setStyleSheet("/* ------------------------- SECCIONES DE LA APLICACION --------------------------*/\n"
@@ -30,7 +32,7 @@ class venPrincipal(object):
 "/* Color de la linea inferior */\n"
 "QFrame#frmCabecera\n"
 "{\n"
-"border-bottom: 1px solid rgb(171, 135, 10);\n"
+"    border-bottom: 1px solid rgb(171, 135, 10);\n"
 "}\n"
 "\n"
 "/* - SECCIÓN DE LA BOTONERA DE MENU E ICONO DE LA BARRA DE TITULO -*/\n"
@@ -50,7 +52,6 @@ class venPrincipal(object):
 "/* Color del botón Minimizar cuando se pulsa el botón */\n"
 "QPushButton#btnMenu:pressed\n"
 "{\n"
-"  \n"
 "    background-color: #b28d0b\n"
 "}\n"
 "\n"
@@ -131,6 +132,7 @@ class venPrincipal(object):
 "    border-bottom: none;\n"
 "    border-right: 1px solid #b28d0b;\n"
 "}\n"
+"\n"
 "/* Estilo de los botones del menú izquierdo */\n"
 "QPushButton#btnInicio, #btnCuenta, #btnAjustes, #btnClientes\n"
 "{\n"
@@ -168,7 +170,6 @@ class venPrincipal(object):
 "/* Color del botón Minimizar cuando se pulsa el botón */\n"
 "QPushButton#btnInicio:pressed, #btnCuenta:pressed, #btnAjustes:pressed, #btnClientes:pressed\n"
 "{\n"
-"  \n"
 "    background-color: #b28d0b\n"
 "}\n"
 "\n"
@@ -190,6 +191,7 @@ class venPrincipal(object):
 "    background-image: url(:/iconos/iconos/cil-settings3.png);\n"
 "}\n"
 "\n"
+"/* Icono para el botón Clientes */\n"
 "QPushButton#btnClientes\n"
 "{\n"
 "    background-image: url(:/iconos/iconos/cil-user-female.png);\n"
@@ -356,7 +358,7 @@ class venPrincipal(object):
         self.frmMenuIzq = QtWidgets.QFrame(self.frmCuerpo)
         self.frmMenuIzq.setMaximumSize(QtCore.QSize(50, 16777215))
         self.frmMenuIzq.setStyleSheet("")
-        self.frmMenuIzq.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frmMenuIzq.setFrameShape(QtWidgets.QFrame.Box)
         self.frmMenuIzq.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frmMenuIzq.setLineWidth(0)
         self.frmMenuIzq.setObjectName("frmMenuIzq")
@@ -365,8 +367,9 @@ class venPrincipal(object):
         self.verticalLayout_2.setSpacing(0)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.frmBotonesTop = QtWidgets.QFrame(self.frmMenuIzq)
-        self.frmBotonesTop.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frmBotonesTop.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.frmBotonesTop.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frmBotonesTop.setLineWidth(0)
         self.frmBotonesTop.setObjectName("frmBotonesTop")
         self.formLayout = QtWidgets.QFormLayout(self.frmBotonesTop)
         self.formLayout.setContentsMargins(0, 0, 0, 0)
@@ -374,19 +377,23 @@ class venPrincipal(object):
         self.formLayout.setObjectName("formLayout")
         self.btnInicio = QtWidgets.QPushButton(self.frmBotonesTop)
         self.btnInicio.setMinimumSize(QtCore.QSize(140, 0))
+        self.btnInicio.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btnInicio.setObjectName("btnInicio")
         self.formLayout.setWidget(0, QtWidgets.QFormLayout.SpanningRole, self.btnInicio)
         self.btnCuenta = QtWidgets.QPushButton(self.frmBotonesTop)
         self.btnCuenta.setMinimumSize(QtCore.QSize(140, 0))
+        self.btnCuenta.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btnCuenta.setObjectName("btnCuenta")
         self.formLayout.setWidget(1, QtWidgets.QFormLayout.SpanningRole, self.btnCuenta)
         self.btnClientes = QtWidgets.QPushButton(self.frmBotonesTop)
         self.btnClientes.setMinimumSize(QtCore.QSize(140, 0))
+        self.btnClientes.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btnClientes.setObjectName("btnClientes")
         self.formLayout.setWidget(2, QtWidgets.QFormLayout.LabelRole, self.btnClientes)
         self.verticalLayout_2.addWidget(self.frmBotonesTop)
         self.btnAjustes = QtWidgets.QPushButton(self.frmMenuIzq)
         self.btnAjustes.setMinimumSize(QtCore.QSize(140, 0))
+        self.btnAjustes.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btnAjustes.setObjectName("btnAjustes")
         self.verticalLayout_2.addWidget(self.btnAjustes)
         self.horizontalLayout.addWidget(self.frmMenuIzq)
@@ -402,6 +409,14 @@ class venPrincipal(object):
         self.tablaContenido = QtWidgets.QStackedWidget(self.frmContenido)
         self.tablaContenido.setStyleSheet("")
         self.tablaContenido.setObjectName("tablaContenido")
+        self.tabClientes = QtWidgets.QWidget()
+        self.tabClientes.setObjectName("tabClientes")
+        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.tabClientes)
+        self.verticalLayout_3.setObjectName("verticalLayout_3")
+        self.label = QtWidgets.QLabel(self.tabClientes)
+        self.label.setObjectName("label")
+        self.verticalLayout_3.addWidget(self.label)
+        self.tablaContenido.addWidget(self.tabClientes)
         self.tabInicio = QtWidgets.QWidget()
         self.tabInicio.setStyleSheet("background-color: rgb(85, 170, 80);")
         self.tabInicio.setObjectName("tabInicio")
@@ -415,7 +430,8 @@ class venPrincipal(object):
         self.tabCuenta.setStyleSheet("QWidget #tabCuenta\n"
 "{\n"
 "    \n"
-"    image: url(:/imagenes/imagenes/3402.jpg);\n"
+"    \n"
+"    background-color: rgb(203, 203, 203);\n"
 "}\n"
 "\n"
 "QFrame#frmDatosLogin\n"
@@ -523,8 +539,7 @@ class venPrincipal(object):
         self.verticalLayout_7.setSpacing(0)
         self.verticalLayout_7.setObjectName("verticalLayout_7")
         self.frmLogin = QtWidgets.QFrame(self.tabCuenta)
-        self.frmLogin.setStyleSheet("\n"
-"")
+        self.frmLogin.setStyleSheet("")
         self.frmLogin.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frmLogin.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frmLogin.setObjectName("frmLogin")
@@ -586,24 +601,24 @@ class venPrincipal(object):
         self.lblTituloLogin = QtWidgets.QLabel(self.frmDatosLogin)
         self.lblTituloLogin.setGeometry(QtCore.QRect(110, 21, 161, 31))
         self.lblTituloLogin.setObjectName("lblTituloLogin")
-        self.lblIconoLogin = QtWidgets.QLabel(self.frmDatosLogin)
-        self.lblIconoLogin.setGeometry(QtCore.QRect(19, 90, 40, 40))
-        self.lblIconoLogin.setMinimumSize(QtCore.QSize(40, 40))
-        self.lblIconoLogin.setText("")
-        self.lblIconoLogin.setPixmap(QtGui.QPixmap(":/iconos/iconos/cil-user.png"))
-        self.lblIconoLogin.setAlignment(QtCore.Qt.AlignCenter)
-        self.lblIconoLogin.setObjectName("lblIconoLogin")
+        self.lblIconoUsuario = QtWidgets.QLabel(self.frmDatosLogin)
+        self.lblIconoUsuario.setGeometry(QtCore.QRect(19, 90, 40, 40))
+        self.lblIconoUsuario.setMinimumSize(QtCore.QSize(40, 40))
+        self.lblIconoUsuario.setText("")
+        self.lblIconoUsuario.setPixmap(QtGui.QPixmap(":/iconos/iconos/cil-user.png"))
+        self.lblIconoUsuario.setAlignment(QtCore.Qt.AlignCenter)
+        self.lblIconoUsuario.setObjectName("lblIconoUsuario")
         self.chkSesion = QtWidgets.QCheckBox(self.frmDatosLogin)
         self.chkSesion.setGeometry(QtCore.QRect(158, 220, 201, 31))
         self.chkSesion.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.chkSesion.setObjectName("chkSesion")
-        self.label_6 = QtWidgets.QLabel(self.frmDatosLogin)
-        self.label_6.setGeometry(QtCore.QRect(19, 157, 40, 40))
-        self.label_6.setMinimumSize(QtCore.QSize(40, 40))
-        self.label_6.setText("")
-        self.label_6.setPixmap(QtGui.QPixmap(":/iconos/iconos/cil-https.png"))
-        self.label_6.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_6.setObjectName("label_6")
+        self.lblIconoPass = QtWidgets.QLabel(self.frmDatosLogin)
+        self.lblIconoPass.setGeometry(QtCore.QRect(19, 157, 40, 40))
+        self.lblIconoPass.setMinimumSize(QtCore.QSize(40, 40))
+        self.lblIconoPass.setText("")
+        self.lblIconoPass.setPixmap(QtGui.QPixmap(":/iconos/iconos/cil-https.png"))
+        self.lblIconoPass.setAlignment(QtCore.Qt.AlignCenter)
+        self.lblIconoPass.setObjectName("lblIconoPass")
         self.gridLayout.addWidget(self.frmDatosLogin, 1, 0, 1, 1)
         self.verticalLayout_7.addWidget(self.frmLogin, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
         self.tablaContenido.addWidget(self.tabCuenta)
@@ -620,8 +635,8 @@ class venPrincipal(object):
         self.horizontalLayout.addWidget(self.frmContenido)
         self.verticalLayout.addWidget(self.frmCuerpo)
         self.frmBarraEstado = QtWidgets.QFrame(self.centralwidget)
-        self.frmBarraEstado.setMinimumSize(QtCore.QSize(0, 25))
-        self.frmBarraEstado.setMaximumSize(QtCore.QSize(16777215, 30))
+        self.frmBarraEstado.setMinimumSize(QtCore.QSize(0, 15))
+        self.frmBarraEstado.setMaximumSize(QtCore.QSize(16777215, 15))
         self.frmBarraEstado.setStyleSheet("")
         self.frmBarraEstado.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frmBarraEstado.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -630,17 +645,26 @@ class venPrincipal(object):
         venPrincipal.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(venPrincipal)
-        self.tablaContenido.setCurrentIndex(1)
+        self.tablaContenido.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(venPrincipal)
 
     def retranslateUi(self, venPrincipal):
         _translate = QtCore.QCoreApplication.translate
         venPrincipal.setWindowTitle(_translate("venPrincipal", "MainWindow"))
+        self.btnMenu.setToolTip(_translate("venPrincipal", "Despliega el Menú"))
         self.lblLogo.setText(_translate("venPrincipal", "Hotel Spa La Tacita de Plata"))
+        self.btnMinimizar.setToolTip(_translate("venPrincipal", "Minimizar"))
+        self.btnMaximizar.setToolTip(_translate("venPrincipal", "Maximizar"))
+        self.btnCerrar.setToolTip(_translate("venPrincipal", "Cerrar"))
+        self.btnInicio.setToolTip(_translate("venPrincipal", "Sección \"Inicio\""))
         self.btnInicio.setText(_translate("venPrincipal", "Inicio"))
+        self.btnCuenta.setToolTip(_translate("venPrincipal", "Sección \"Cuenta\""))
         self.btnCuenta.setText(_translate("venPrincipal", "Cuenta"))
+        self.btnClientes.setToolTip(_translate("venPrincipal", "Sección \"Clientes\""))
         self.btnClientes.setText(_translate("venPrincipal", "PushButton"))
+        self.btnAjustes.setToolTip(_translate("venPrincipal", "Sección \"Ajustes\""))
         self.btnAjustes.setText(_translate("venPrincipal", "Ajustes"))
+        self.label.setText(_translate("venPrincipal", "Clientes"))
         self.label_2.setText(_translate("venPrincipal", "INICIO"))
         self.lblUsuario.setText(_translate("venPrincipal", "Usuario:"))
         self.txtUsuario.setPlaceholderText(_translate("venPrincipal", "Usuario"))
