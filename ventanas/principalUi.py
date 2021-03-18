@@ -69,6 +69,12 @@ class venPrincipal(object):
 "    font: 25 18pt \"Gabriola\";\n"
 "}\n"
 "\n"
+"QLabel#lblBarraUsuario\n"
+"{\n"
+"    color: #ffffff;\n"
+"    font: 25 9pt \"Bahnschrift Light\";\n"
+"}\n"
+"\n"
 "/* ------------ SECCIÓN DE LA BOTONERA DE LA BARRA DE TITULO -------------*/\n"
 "\n"
 "/* Color de la botonera de la barra de título */\n"
@@ -302,7 +308,7 @@ class venPrincipal(object):
         self.horizontalLayout_5.addWidget(self.frmTitulo)
         self.horizontalLayout_2.addWidget(self.frmTituloContenedor)
         self.frmBotonera = QtWidgets.QFrame(self.frmCabecera)
-        self.frmBotonera.setMaximumSize(QtCore.QSize(105, 16777215))
+        self.frmBotonera.setMaximumSize(QtCore.QSize(275, 16777215))
         self.frmBotonera.setStyleSheet("")
         self.frmBotonera.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frmBotonera.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -311,6 +317,10 @@ class venPrincipal(object):
         self.horizontalLayout_3.setContentsMargins(5, 0, 5, 0)
         self.horizontalLayout_3.setSpacing(5)
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
+        self.lblBarraUsuario = QtWidgets.QLabel(self.frmBotonera)
+        self.lblBarraUsuario.setWordWrap(False)
+        self.lblBarraUsuario.setObjectName("lblBarraUsuario")
+        self.horizontalLayout_3.addWidget(self.lblBarraUsuario)
         self.btnMinimizar = QtWidgets.QPushButton(self.frmBotonera)
         self.btnMinimizar.setMaximumSize(QtCore.QSize(30, 26))
         self.btnMinimizar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
@@ -427,13 +437,13 @@ class venPrincipal(object):
         self.verticalLayout_6.addWidget(self.label_2, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
         self.tablaContenido.addWidget(self.tabInicio)
         self.tabCuenta = QtWidgets.QWidget()
-        self.tabCuenta.setStyleSheet("QWidget #tabCuenta\n"
+        self.tabCuenta.setStyleSheet("/* Color de fondo gris*/\n"
+"QWidget #tabCuenta\n"
 "{\n"
-"    \n"
-"    \n"
 "    background-color: rgb(203, 203, 203);\n"
 "}\n"
 "\n"
+"/* Estilo del cuadro de login */\n"
 "QFrame#frmDatosLogin\n"
 "{\n"
 "    border-radius: 20px;\n"
@@ -441,48 +451,55 @@ class venPrincipal(object):
 "    background-color: rgb(32, 76, 123);\n"
 "}\n"
 "\n"
+"/* Estilo del titulo */\n"
 "QLabel#lblTituloLogin\n"
 "{\n"
 "    color: rgb(198, 160, 30);\n"
 "    font: 25 17pt \"Bahnschrift Light\";\n"
-"\n"
 "}\n"
 "\n"
+"/* Estilo de las dos etiquetas */\n"
 "QLabel#lblUsuario, #lblPassword\n"
 "{\n"
 "    color: rgb(225, 225, 225);\n"
 "    font: 25 12pt \"Bahnschrift Light\";\n"
 "}\n"
 "\n"
+"/* Estilo de las dos cajas de texto */\n"
 "QLineEdit#txtUsuario, #txtPassword\n"
 "{\n"
 "    border: 1px solid rgb(198, 160, 30);\n"
 "    border-radius: 10px;\n"
-"    padding: 15px;\n"
-"    margin-top:10px;\n"
-"    margin-right:10px;\n"
+"    margin-top: 10px;\n"
+"    margin-right: 10px;\n"
+"    padding-left: 10px;\n"
+"    padding-right: 10px;\n"
 "    background-color: rgb(225, 225, 225);\n"
 "    color: rgb(77, 77, 77);\n"
 "    font: 25 10pt \"Bahnschrift Light\";\n"
 "}\n"
 "\n"
+"/* Estilo de las dos cajas de texto cuando se posicionan en ellas con el ratón */\n"
 "QLineEdit#txtUsuario:hover, #txtPassword:hover\n"
 "{\n"
 "    border: 2px solid rgb(0, 66, 124);\n"
 "}\n"
 "\n"
+"/* Estilo de las dos cajas de texto cuando se tiene el foco en ellas */\n"
 "QLineEdit#txtUsuario:focus, #txtPassword:focus\n"
 "{\n"
 "    border: 2px solid rgb(206, 206, 206);\n"
 "    color: rgb(52, 52, 52);\n"
 "}\n"
 "\n"
+"/* Estilo del texto del checkbox */\n"
 "QCheckBox#chkSesion\n"
 "{\n"
 "    color: rgb(225, 225, 225);\n"
 "    font: 25 10pt \"Bahnschrift Light\";\n"
 "}\n"
 "\n"
+"/* Estilo de la caja checkbox */\n"
 "QCheckBox#chkSesion::indicator\n"
 "{\n"
 "    border: 1px solid rgb(198, 160, 30);\n"
@@ -494,17 +511,20 @@ class venPrincipal(object):
 "    padding: 2px;\n"
 "}\n"
 "\n"
+"/* Estilo de la caja checkbox cuando se posiciona el el check con el ratón */\n"
 "QCheckBox#chkSesion::indicator:hover\n"
 "{\n"
 "    border: 1px solid rgb(0, 66, 124);\n"
 "}\n"
 "\n"
+"/* Estilo de la caja checkbox cuando se marca el check */\n"
 "QCheckBox#chkSesion::indicator:checked\n"
 "{\n"
 "    background: 2px solid rgb(198, 160, 30);\n"
 "    background-image: url(:/iconos/iconos/cil-check.png);\n"
 "}\n"
 "\n"
+"/* Estilo del botón de \"Acceder\" */\n"
 "QPushButton#btnLogin\n"
 "{\n"
 "    border: 1px solid rgb(198, 160, 30);\n"
@@ -517,14 +537,14 @@ class venPrincipal(object):
 "    font: 25 10pt \"Bahnschrift Light\";\n"
 "}\n"
 "\n"
-"/* Color del botón Minimizar cuando se posiciona el cursor */\n"
+"/* Color del botón Acceder cuando se posiciona el cursor */\n"
 "QPushButton#btnLogin:hover\n"
 "{\n"
 "      background-color:qlineargradient(spread:pad, x1:0.528409, y1:0.733,                     x2:0.5, y2:0.17, stop:0 #b28d0b, stop:1 #f5cc3d);\n"
 "    font-weight: bold;\n"
 "}\n"
 "\n"
-"/* Color del botón Minimizar cuando se pulsa el botón */\n"
+"/* Color del botón Acceder cuando se pulsa el botón */\n"
 "QPushButton#btnLogin:pressed\n"
 "{\n"
 "    font-weight: bold;\n"
@@ -665,6 +685,7 @@ class venPrincipal(object):
         venPrincipal.setWindowTitle(_translate("venPrincipal", "MainWindow"))
         self.btnMenu.setToolTip(_translate("venPrincipal", "Despliega el Menú"))
         self.lblLogo.setText(_translate("venPrincipal", "Hotel Spa La Tacita de Plata"))
+        self.lblBarraUsuario.setText(_translate("venPrincipal", "Usuario: Invitado"))
         self.btnMinimizar.setToolTip(_translate("venPrincipal", "Minimizar"))
         self.btnMaximizar.setToolTip(_translate("venPrincipal", "Maximizar"))
         self.btnCerrar.setToolTip(_translate("venPrincipal", "Cerrar"))
@@ -679,9 +700,8 @@ class venPrincipal(object):
         self.label.setText(_translate("venPrincipal", "Clientes"))
         self.label_2.setText(_translate("venPrincipal", "INICIO"))
         self.lblUsuario.setText(_translate("venPrincipal", "Usuario:"))
-        self.txtUsuario.setPlaceholderText(_translate("venPrincipal", "Usuario"))
+        self.txtUsuario.setPlaceholderText(_translate("venPrincipal", "a@example.com"))
         self.lblPassword.setText(_translate("venPrincipal", "Contraseña:"))
-        self.txtPassword.setPlaceholderText(_translate("venPrincipal", "Contraseña"))
         self.btnLogin.setText(_translate("venPrincipal", "Acceder"))
         self.lblTituloLogin.setText(_translate("venPrincipal", "Inicio de Sesión"))
         self.chkSesion.setText(_translate("venPrincipal", "Mantener la sesión iniciada"))

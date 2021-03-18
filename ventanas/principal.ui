@@ -74,6 +74,12 @@ QLabel#lblLogo
 	font: 25 18pt &quot;Gabriola&quot;;
 }
 
+QLabel#lblBarraUsuario
+{
+	color: #ffffff;
+	font: 25 9pt &quot;Bahnschrift Light&quot;;
+}
+
 /* ------------ SECCIÓN DE LA BOTONERA DE LA BARRA DE TITULO -------------*/
 
 /* Color de la botonera de la barra de título */
@@ -455,7 +461,7 @@ QFrame#frmBarraEstado
         <widget class="QFrame" name="frmBotonera">
          <property name="maximumSize">
           <size>
-           <width>105</width>
+           <width>275</width>
            <height>16777215</height>
           </size>
          </property>
@@ -484,6 +490,16 @@ QFrame#frmBarraEstado
           <property name="bottomMargin">
            <number>0</number>
           </property>
+          <item>
+           <widget class="QLabel" name="lblBarraUsuario">
+            <property name="text">
+             <string>Usuario: Invitado</string>
+            </property>
+            <property name="wordWrap">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
           <item>
            <widget class="QPushButton" name="btnMinimizar">
             <property name="maximumSize">
@@ -823,13 +839,13 @@ QFrame#frmBarraEstado
             </widget>
             <widget class="QWidget" name="tabCuenta">
              <property name="styleSheet">
-              <string notr="true">QWidget #tabCuenta
+              <string notr="true">/* Color de fondo gris*/
+QWidget #tabCuenta
 {
-	
-	
 	background-color: rgb(203, 203, 203);
 }
 
+/* Estilo del cuadro de login */
 QFrame#frmDatosLogin
 {
 	border-radius: 20px;
@@ -837,48 +853,55 @@ QFrame#frmDatosLogin
 	background-color: rgb(32, 76, 123);
 }
 
+/* Estilo del titulo */
 QLabel#lblTituloLogin
 {
 	color: rgb(198, 160, 30);
 	font: 25 17pt &quot;Bahnschrift Light&quot;;
-
 }
 
+/* Estilo de las dos etiquetas */
 QLabel#lblUsuario, #lblPassword
 {
 	color: rgb(225, 225, 225);
 	font: 25 12pt &quot;Bahnschrift Light&quot;;
 }
 
+/* Estilo de las dos cajas de texto */
 QLineEdit#txtUsuario, #txtPassword
 {
 	border: 1px solid rgb(198, 160, 30);
 	border-radius: 10px;
-	padding: 15px;
-	margin-top:10px;
-	margin-right:10px;
+	margin-top: 10px;
+	margin-right: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
 	background-color: rgb(225, 225, 225);
 	color: rgb(77, 77, 77);
 	font: 25 10pt &quot;Bahnschrift Light&quot;;
 }
 
+/* Estilo de las dos cajas de texto cuando se posicionan en ellas con el ratón */
 QLineEdit#txtUsuario:hover, #txtPassword:hover
 {
 	border: 2px solid rgb(0, 66, 124);
 }
 
+/* Estilo de las dos cajas de texto cuando se tiene el foco en ellas */
 QLineEdit#txtUsuario:focus, #txtPassword:focus
 {
 	border: 2px solid rgb(206, 206, 206);
 	color: rgb(52, 52, 52);
 }
 
+/* Estilo del texto del checkbox */
 QCheckBox#chkSesion
 {
 	color: rgb(225, 225, 225);
 	font: 25 10pt &quot;Bahnschrift Light&quot;;
 }
 
+/* Estilo de la caja checkbox */
 QCheckBox#chkSesion::indicator
 {
 	border: 1px solid rgb(198, 160, 30);
@@ -890,17 +913,20 @@ QCheckBox#chkSesion::indicator
 	padding: 2px;
 }
 
+/* Estilo de la caja checkbox cuando se posiciona el el check con el ratón */
 QCheckBox#chkSesion::indicator:hover
 {
 	border: 1px solid rgb(0, 66, 124);
 }
 
+/* Estilo de la caja checkbox cuando se marca el check */
 QCheckBox#chkSesion::indicator:checked
 {
 	background: 2px solid rgb(198, 160, 30);
 	background-image: url(:/iconos/iconos/cil-check.png);
 }
 
+/* Estilo del botón de &quot;Acceder&quot; */
 QPushButton#btnLogin
 {
 	border: 1px solid rgb(198, 160, 30);
@@ -913,14 +939,14 @@ QPushButton#btnLogin
 	font: 25 10pt &quot;Bahnschrift Light&quot;;
 }
 
-/* Color del botón Minimizar cuando se posiciona el cursor */
+/* Color del botón Acceder cuando se posiciona el cursor */
 QPushButton#btnLogin:hover
 {
   	background-color:qlineargradient(spread:pad, x1:0.528409, y1:0.733, 					x2:0.5, y2:0.17, stop:0 #b28d0b, stop:1 #f5cc3d);
 	font-weight: bold;
 }
 
-/* Color del botón Minimizar cuando se pulsa el botón */
+/* Color del botón Acceder cuando se pulsa el botón */
 QPushButton#btnLogin:pressed
 {
 	font-weight: bold;

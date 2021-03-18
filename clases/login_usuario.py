@@ -3,16 +3,16 @@
 # ----------------------------------------------------------------------------------------------------------------------
 
 import pymysql
+import re
 from pymysql import Error
 from passlib.hash import pbkdf2_sha256
-from PyQt5.QtWidgets import QMessageBox
-from PyQt5.QtGui import QIcon
 
 # ----------------------------------------------------------------------------------------------------------------------
 #   BLOQUE DE IMPORTACIONES DE OTROS ARCHIVOS CREADOS PARA LA APLICACIÓN
 # ----------------------------------------------------------------------------------------------------------------------
 
 from clases.menu_lateral import pro_activar_botones_menu
+from clases.ventana_mensajes import pro_mensaje_un_boton as pro_mensaje_un_boton
 
 
 # ----------------------------------------------------------------------------------------------------------------------
@@ -23,6 +23,8 @@ from clases.menu_lateral import pro_activar_botones_menu
 def pro_click_login_usuario(self):
 
     self.uiVentana.btnLogin.clicked.connect(lambda: pro_login_usuario(self))
+    self.uiVentana.txtUsuario.textChanged.connect(lambda: pro_validar_texto_usuario(self))
+    self.uiVentana.txtPassword.textChanged.connect(lambda: pro_validar_texto_password(self))
 
 
 # Método que se lanza cuando se pulsa el botón de "Acceder" en la pestaña de logueo y comprueba si el usuario y la
@@ -40,7 +42,7 @@ def pro_login_usuario(self):
         if len(w_pass) > 0:
 
             # Se comprueba si el usuario es correcto y se loguea al usuario.
-            pro_comprobar_usuario_bbdd(self, w_usuario, w_pass)
+            pro_comprobar_usuario_bbdd(self, w_email=w_usuario, w_contrasena=w_pass)
 
         # Si no se ha rellenado la contraseña, pues se muestra un mensaje de error por pantalla.
         else:
@@ -59,6 +61,48 @@ def pro_login_usuario(self):
                              w_mensaje='No ha introducido el usuario.',
                              w_titulo='Usuario vacío',
                              w_mensaje_secundario=None)
+
+
+# Método que valida que el texto de la caja de texto del usuario corresponda al formato correcto de un Email.
+def pro_validar_texto_usuario(self):
+
+    # Se obtiene el texto del usuario.
+    w_usuario = self.uiVentana.txtUsuario.text().strip()
+    # Se aplica el patrón de validación para los campos de Email.
+    w_patron = '^[a-zA-Z0-9\._-]+@[a-zA-Z0-9-]{2,}[.][a-zA-Z]{2,4}$'
+    # Se indica que el campo a comprobar es el email y se guarda en una variable.
+    w_validar_usuario = re.match(w_patron, w_usuario, re.I)
+
+    # Si el texto del email está vacío o si el texto del email no ha sido validado por el patrón de emails.
+    if w_usuario == '' or not w_validar_usuario:
+
+        # Se modifica el color del borde de la caja de texto.
+        self.uiVentana.txtUsuario.setStyleSheet('border: 2px solid red')
+
+    # Si el usuario ha sido rellenado y validado.
+    else:
+
+        # Se modifica el color del borde de la caja de texto.
+        self.uiVentana.txtUsuario.setStyleSheet('border: 2px solid green')
+
+
+# Método que valida que el texto de la caja de texto de la contraseña tenga algun valor.
+def pro_validar_texto_password(self):
+
+    # Se obtiene el texto de la contraseña.
+    w_contrasena = self.uiVentana.txtPassword.text().strip()
+
+    # Si la contraseña esta vacía.
+    if w_contrasena == '':
+
+        # Se modifica el color del borde de la caja de texto.
+        self.uiVentana.txtContrasena.setStyleSheet('border: 2px solid red')
+
+    # Si la contraseña ha sido rellenada.
+    else:
+
+        # Se modifica el color del borde de la caja de texto.
+        self.uiVentana.txtPassword.setStyleSheet('border: 2px solid green')
 
 
 # Método que realiza el logín del usuario en la aplicación.
@@ -99,8 +143,12 @@ def pro_comprobar_usuario_bbdd(self, w_email, w_contrasena):
                                          w_titulo='Conexión establecida',
                                          w_mensaje_secundario=None)
 
+                    # Se indica en la etiqueta el nombre y el primer apellido de la persona logueada.
+                    self.uiVentana.lblBarraUsuario.setText('Usuario: {} {}'.format(w_datos_usuarios[1],
+                                                                                   w_datos_usuarios[2]))
+
                     # Se activan los botones del menú lateral.
-                    pro_activar_botones_menu(self, True)
+                    pro_activar_botones_menu(self, w_estado=True)
 
                 # Si la validación de la contraseña encriptada no es correcta, se muestra un mensaje de error por
                 # pantalla.
@@ -112,16 +160,19 @@ def pro_comprobar_usuario_bbdd(self, w_email, w_contrasena):
                                          w_titulo='Acceso Denegado',
                                          w_mensaje_secundario=None)
 
-            # Si no ha recuperado registros, es que el usuario no existe en la BBDD y se muestra un mensaje de error
-            # por pantalla.
+            # Si no ha recuperado registros, es que el usuario no existe en la BBDD.
             else:
 
-                # Se desactivan los botones del menú lateral.
-                pro_activar_botones_menu(self, False)
+                # Se indica en la etiqueta del usuario, que el actual es el usuario "Invitado".
+                self.uiVentana.lblBarraUsuario.setText('Usuario: Invitado')
 
+                # Se desactivan los botones del menú lateral.
+                pro_activar_botones_menu(self, w_estado=False)
+
+                # Se muestra un mensaje de error por pantalla.
                 pro_mensaje_un_boton(self,
                                      w_tipo_ventana='Error',
-                                     w_mensaje='El usuario es incorrecto',
+                                     w_mensaje='El usuario {} no existe en el sistema.'.format(w_email),
                                      w_titulo='Acceso Denegado',
                                      w_mensaje_secundario=None)
 
@@ -148,40 +199,3 @@ def fun_conexion_bbdd():
     return w_conexion
 
 
-# Se crea un método para mostrar una ventana de mensaje que contiene el botón "Aceptar".
-def pro_mensaje_un_boton(self, w_tipo_ventana, w_mensaje, w_titulo, w_mensaje_secundario):
-    # Se crea un objeto de tipo ventana de mensaje.
-    w_ventana_mensaje = QMessageBox()
-    # Se muestra el mensaje al usuario indicado.
-    w_ventana_mensaje.setText(w_mensaje)
-
-    # Según sea el tipo de mensaje indicado, se elige un tipo de icono para la ventana.
-    if w_tipo_ventana == 'Consulta':
-        w_ventana_mensaje.setIcon(QMessageBox.Question)
-    elif w_tipo_ventana == 'Información':
-        w_ventana_mensaje.setIcon(QMessageBox.Information)
-    elif w_tipo_ventana == 'Advertencia':
-        w_ventana_mensaje.setIcon(QMessageBox.Warning)
-    elif w_tipo_ventana == 'Error':
-        w_ventana_mensaje.setIcon(QMessageBox.Critical)
-    else:
-        w_ventana_mensaje.setIcon(QMessageBox.NoIcon)
-
-    # Se indica el titulo de la ventana indicado.
-    w_ventana_mensaje.setWindowTitle(w_titulo)
-    # Se indica el icono de la ventana.
-    w_ventana_mensaje.setWindowIcon(QIcon(u':/imagenes/imagenes/logo.png'))
-    # Se indica el mensaje secundario indicado.
-    w_ventana_mensaje.setInformativeText(w_mensaje_secundario)
-
-    # Se añade el botón de "Aceptar" con el estilo de la aplicación.
-    w_boton_aceptar = w_ventana_mensaje.addButton(self.tr("Aceptar"), QMessageBox.AcceptRole)
-    w_boton_aceptar.setStyleSheet('QPushButton {color: #ffffff;text-align: center;background-color: '
-                                  'qlineargradient(spread:pad, x1:1, y1:0.545, x2:1, y2:0, stop:0 #b6b6b6, stop:1 '
-                                  '#e6e6e6);border: 1px solid #828282;padding: 5px 12px 5px 12px;margin: 4px 8px '
-                                  '4px 8px;border-radius: 3px;min-width: 14px;min-height: 14px;}QPushButton:hover, '
-                                  'QPushButton:focus{color: white;background-color: qlineargradient(spread:pad, '
-                                  'x1:1, y1:0.545, x2:1, y2:0, stop:0 #2eae35, stop:1 #cae44a);}QPushButton:pressed'
-                                  ' {background-color: #2eae35;}')
-    # Se muestra la ventana de aviso.
-    w_ventana_mensaje.exec_()

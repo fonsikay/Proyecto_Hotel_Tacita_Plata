@@ -1,8 +1,16 @@
+# ----------------------------------------------------------------------------------------------------------------------
+#   BLOQUE DE IMPORTACIONES DE LIBRERIAS
+# ----------------------------------------------------------------------------------------------------------------------
+
 from PyQt5.QtWidgets import QMessageBox
 from PyQt5.QtGui import QIcon
 
 
-# Se crea un método para mostrar una ventana de mensaje que contiene el botón "Aceptar".
+# ----------------------------------------------------------------------------------------------------------------------
+#   BLOQUE DE MÉTODOS DE LOS MENSAJES POR PANTALLA.
+# ----------------------------------------------------------------------------------------------------------------------
+
+# Método para mostrar una ventana de mensaje que contiene el botón "Aceptar".
 def pro_mensaje_un_boton(self, w_tipo_ventana, w_mensaje, w_titulo, w_mensaje_secundario):
     # Se crea un objeto de tipo ventana de mensaje.
     w_ventana_mensaje = QMessageBox()
@@ -41,7 +49,7 @@ def pro_mensaje_un_boton(self, w_tipo_ventana, w_mensaje, w_titulo, w_mensaje_se
     w_ventana_mensaje.exec_()
 
 
-# Se crea un método para mostrar una ventana de mensaje que contiene el botón "Aceptar" y "Cancelar".
+# Método para mostrar una ventana de mensaje que contiene el botón "Aceptar" y "Cancelar".
 def fun_mensaje_dos_botones(self, w_tipo_ventana, w_mensaje, w_titulo, w_mensaje_secundario):
     # Se crea un objeto de tipo ventana de mensaje.
     w_ventana_mensaje = QMessageBox()
